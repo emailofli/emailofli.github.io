@@ -1,115 +1,474 @@
-## 软开云DevCloud
+<!DOCTYPE html><html lang="en"><head>
+<title>软开云</title>
+  <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="()">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/svg-with-js.css" crossorigin="anonymous">
+<style type="text/css">
+#nav{
+  display: none;
+}
+.xsj_container_toc>#nav{
+    display: block;
+    background-color: #f9f9f9;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    overflow-y: auto;
+    width: 300px;
+    z-index: 1;
+}
+.xsj_container_toc>#wmd-preview{
+    margin-left: 300px;
+}
+.hide_toc.xsj_container_toc>#nav{
+    display: none;
+}
 
-软开云包含多款产品
+.hide_toc.xsj_container_toc>#wmd-preview{
+    margin-left:  50px;
+}
 
--   [项目管理 ProjectMan](https://www.huaweicloud.com/product/projectman.html)
--   [代码托管 CodeHub](https://www.huaweicloud.com/product/codehub.html)
--   [流水线 CloudPipeline](https://www.huaweicloud.com/product/cloudpipeline.html)
--   [代码检查 CodeCheck](https://www.huaweicloud.com/product/codecheck.html)
--   [编译构建 CloudBuild](https://www.huaweicloud.com/product/cloudbuild.html)
--   [部署 CloudDeploy](https://www.huaweicloud.com/product/clouddeploy.html)
--   [云测 CloudTest](https://www.huaweicloud.com/product/cloudtest.html)
--   [发布 CloudRelease](https://www.huaweicloud.com/product/cloudrelease.html)
--   [移动应用测试 MobileAPPTest](https://www.huaweicloud.com/product/mobileapptest.html)
--   [CloudIDE](https://www.huaweicloud.com/product/cloudide.html)
--   [Classroom](https://www.huaweicloud.com/product/classroom.html)
--   [华为开源镜像站 Mirrors](https://www.huaweicloud.com/product/mirrors.html)
+#toc-nav {
+    position: fixed;
+    z-index: 2;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    min-width: 1.33em;
+    border-top-right-radius: 2rem;
+    box-shadow: 0 0 2px;
+    font-size: 1.5em;
+    color: black;
+}
 
-### 项目管理 projectMan
+#toc-nav .toc-toggle-tip{
+    display:none;
+}
+#toc-nav:hover .toc-toggle-tip{
+    display:initial;
+    margin-right: .5em;
+    }
+</style>
+<style type="text/css">
+.tocbot{overflow-y:auto}.tocbot>.toc-list{overflow:hidden;position:relative}.tocbot>.toc-list li{list-style:none}.toc-list{margin:0;padding-left:10px}a.toc-link{color:currentColor;height:100%}.is-collapsible{max-height:1000px;overflow:hidden;transition:all 300ms ease-in-out}.is-collapsed{max-height:0}.is-position-fixed{position:fixed !important;top:0}.is-active-link{font-weight:700}.toc-link::before{background-color:#EEE;content:' ';display:inline-block;height:inherit;left:0;margin-top:-1px;position:absolute;width:2px}.is-active-link::before{background-color:#54BC4B}
+</style>
+<style type="text/css">
 
->   项目管理是为软件开发团队提供敏捷项目管理与协作的云服务
->
->   提供了项目管理、需求规划和管理、缺陷管理、迭代计划管理、自定义工作流、进度跟踪、统计报表、wiki、项目文档托管等多种软件项目管理的基础特征。
->
->   预置两种项目模版
->
->   -   Scrum 项目模版：秉承严谨的敏捷scrum方法论和实践、适用于敏捷燃尽开发团队
->   -   看板项目模版：适用于轻量、简单管理的软件开发团队
+</style>
+</head><body>
+<div class="xsj_root">
+<p id="toc-nav"><a id="toc-toggle" href="javascript:void();"><span class="toc-toggle-icon">←</span> <span class="toc-toggle-tip">关闭目录</span></a></p>
+<nav id="nav" class="tocbot"></nav>
+<div class="preview" id="wmd-preview">
+<style>
+a:focus {
+	outline:	thin dotted #333;
+	outline:	5px auto -webkit-focus-ring-color;
+	outline-offset:	-2px;
+}
+a:hover {
+	outline:	0;
+}
+a:active {
+	outline:	0;
+}
+a:hover {
+	color:	#005580 !important;
+	text-decoration:	underline !important;
+}
+blockquote   small:before {
+	content:	'\2014 \00A0';
+}
+.hljs-folder:before {
+	top:	0;
+	content:	'';
+	width:	14px;
+	height:	12px;
+	margin-top:	0px;
+	margin-right:	3px;
+	position:	relative;
+	display:	inline-block;
+	background-size:	14px;
+	background-repeat:	no-repeat;
+}
+.hljs-file:before {
+	top:	0;
+	content:	'';
+	width:	14px;
+	height:	12px;
+	margin-top:	0px;
+	margin-right:	3px;
+	position:	relative;
+	display:	inline-block;
+	background-size:	14px;
+	background-repeat:	no-repeat;
+}
+.hljs-hiddenfile:before {
+	top:	0;
+	content:	'';
+	width:	14px;
+	height:	12px;
+	margin-top:	0px;
+	margin-right:	3px;
+	position:	relative;
+	display:	inline-block;
+	background-size:	14px;
+	background-repeat:	no-repeat;
+}
+.hljs-file:before {
+	height:	14px;
+	margin-left:	1px;
+}
+.hljs-hiddenfile:before {
+	height:	14px;
+	margin-left:	1px;
+}
+.hljs-file.photo:before {
+	font:	normal normal normal 14px / 1 FontAwesome;
+	content:	"\f1c5";
+}
+.hljs-file.plain:before {
+	font:	normal normal normal 14px / 1 FontAwesome;
+	content:	"\f016";
+}
+.hljs-file.source:before {
+	font:	normal normal normal 14px / 1 FontAwesome;
+	content:	"\f1c9";
+}
+.hljs-file.archive:before {
+	font:	normal normal normal 14px / 1 FontAwesome;
+	content:	"\f1c6";
+}
+.hljs-file.audio:before {
+	font:	normal normal normal 14px / 1 FontAwesome;
+	content:	"\f1c7";
+}
+.hljs-file.video:before {
+	font:	normal normal normal 14px / 1 FontAwesome;
+	content:	"\f1c8";
+}
+.hljs-file.pdf:before {
+	font:	normal normal normal 14px / 1 FontAwesome;
+	content:	"\f1c1";
+}
+.hljs-file.xls:before {
+	font:	normal normal normal 14px / 1 FontAwesome;
+	content:	"\f1c3";
+}
+.hljs-file.doc:before {
+	font:	normal normal normal 14px / 1 FontAwesome;
+	content:	"\f1c2";
+}
+.hljs-file.ppt:before {
+	font:	normal normal normal 14px / 1 FontAwesome;
+	content:	"\f1c4";
+}
+.hljs-folder:before {
+	font:	normal normal normal 14px / 1 FontAwesome;
+	content:	"\f114";
+}
+.hljs-hiddenfile:before {
+	font:	normal normal normal 14px / 1 FontAwesome;
+	content:	"\f016";
+}
+-webkit-transform:	rotate(0deg);
+transform:	rotate(0deg);
+-webkit-transform:	rotate(360deg);
+transform:	rotate(360deg);
+-webkit-transform:	rotate(0deg);
+transform:	rotate(0deg);
+-webkit-transform:	rotate(360deg);
+transform:	rotate(360deg);
+.sr-only-focusable:active {
+	clip:	auto;
+	height:	auto;
+	margin-top:	0;
+	margin-right:	0;
+	margin-bottom:	0;
+	margin-left:	0;
+	overflow:	visible;
+	position:	static;
+	width:	auto;
+}
+.sr-only-focusable:focus {
+	clip:	auto;
+	height:	auto;
+	margin-top:	0;
+	margin-right:	0;
+	margin-bottom:	0;
+	margin-left:	0;
+	overflow:	visible;
+	position:	static;
+	width:	auto;
+}
+.blank_anchor_id:before {
+	content:	'a';
+}
+.li_linenum:before {
+	content:	counter(lines , decimal);
+	position:	absolute;
+	left:	-3em;
+	text-align:	center;
+	width:	2.5em;
+	vertical-align:	top;
+}
+.li_linenum.line_mark:before {
+	background:	rgba(210 , 118 , 118 , 0.6);
+}
+@media print {
+body {
+	font-size:	18px !important;
+	word-wrap:	break-word !important;
+	background:	initial !important;
+	font-kerning:	normal;
+	text-rendering:	geometricPrecision;
+}
+.preview.html_preview {
+	max-width:	initial !important;
+	border:	initial;
+	margin-top:	initial;
+	margin-right:	initial;
+	margin-bottom:	initial;
+	margin-left:	initial;
+	padding-top:	initial;
+	padding-right:	initial;
+	padding-bottom:	initial;
+	padding-left:	initial;
+	border-radius:	initial;
+	box-shadow:	initial;
+}
+.xiaoshujiang_element.xsj_anchor {
+	position:	absolute;
+}
+tr {
+	page-break-inside:	avoid;
+}
+.story_image_container {
+	page-break-inside:	avoid;
+}
+blockquote {
+	page-break-inside:	avoid;
+}
+.xsj_underline {
+	page-break-after:	always;
+	visibility:	hidden;
+}
+}
+@media print {
+.markdown_vertical {
+	writing-mode:	initial;
+}
+.markdown_vertical   strong {
+	border-left:	0;
+	border-bottom:	2px solid;
+}
+}
 
-##### 产品优势
+</style><body style="font-family: &apos;Helvetica Neue&apos; , Helvetica , Tahoma , Arial , &apos;Hiragino Sans GB&apos; , STHeiti , &quot;Microsoft YaHei&quot; , &quot;&#x5FAE;&#x8F6F;&#x96C5;&#x9ED1;&quot; , &apos;WenQuanYi Micro Hei&apos; , STXihei , &quot;&#x534E;&#x6587;&#x7EC6;&#x9ED1;&quot; , Heiti , &quot;&#x9ED1;&#x4F53;&quot; , SimSun , &quot;&#x5B8B;&#x4F53;&quot; , Song , sans-serif; font-size: 16px; line-height: 1.8; font-weight: normal; color: #2f2f2f; word-wrap: break-word;">
+	<div class="preview html_preview xsj_export_html" style="max-width: 100%;"><h2 class="xsj_heading_hash xsj_heading xsj_heading_h2" id="e8bdafe5bc80e4ba91devcloud_1" style="font-weight: bold; text-rendering: optimizelegibility; font-size: 1.8rem; margin-top: .7em; margin-right: 0; margin-bottom: .5em; margin-left: 0;"><div class="xiaoshujiang_element xsj_anchor" style="overflow: hidden; float: right;">
+  <a name="e8bdafe5bc80e4ba91devcloud_1" class="blank_anchor_name" target="_blank" style="color: #0088cc; text-decoration: none;"></a><a id="e8bdafe5bc80e4ba91devcloud_1" class="blank_anchor_id" target="_blank" style="color: #0088cc; text-decoration: none; float: right; width: 1px; height: 0px; visibility: hidden;"></a><a name="软开云devcloud" class="blank_anchor_name" target="_blank" style="color: #0088cc; text-decoration: none;"></a><a id="软开云devcloud" class="blank_anchor_id" target="_blank" style="color: #0088cc; text-decoration: none; float: right; width: 1px; height: 0px; visibility: hidden;"></a>
+</div>
+<span class="xsj_heading_content">软开云DevCloud</span></h2>
+<p class="xsj_paragraph xsj_paragraph_level_0" style="margin-top: 1.1em; margin-right: 0; margin-bottom: 1.6em; margin-left: 0;">软开云包含多款产品</p>
+<ul class="markdown_ul" style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 1.1em; margin-right: 0; margin-bottom: 1.1em; margin-left: 3em;">
+<li><a href="https://www.huaweicloud.com/product/projectman.html" class="xsj_link xsj_manu_link" target="_blank" style="color: #0088cc; text-decoration: none;">项目管理 ProjectMan</a></li>
+<li><a href="https://www.huaweicloud.com/product/codehub.html" class="xsj_link xsj_manu_link" target="_blank" style="color: #0088cc; text-decoration: none;">代码托管 CodeHub</a></li>
+<li><a href="https://www.huaweicloud.com/product/cloudpipeline.html" class="xsj_link xsj_manu_link" target="_blank" style="color: #0088cc; text-decoration: none;">流水线 CloudPipeline</a></li>
+<li><a href="https://www.huaweicloud.com/product/codecheck.html" class="xsj_link xsj_manu_link" target="_blank" style="color: #0088cc; text-decoration: none;">代码检查 CodeCheck</a></li>
+<li><a href="https://www.huaweicloud.com/product/cloudbuild.html" class="xsj_link xsj_manu_link" target="_blank" style="color: #0088cc; text-decoration: none;">编译构建 CloudBuild</a></li>
+<li><a href="https://www.huaweicloud.com/product/clouddeploy.html" class="xsj_link xsj_manu_link" target="_blank" style="color: #0088cc; text-decoration: none;">部署 CloudDeploy</a></li>
+<li><a href="https://www.huaweicloud.com/product/cloudtest.html" class="xsj_link xsj_manu_link" target="_blank" style="color: #0088cc; text-decoration: none;">云测 CloudTest</a></li>
+<li><a href="https://www.huaweicloud.com/product/cloudrelease.html" class="xsj_link xsj_manu_link" target="_blank" style="color: #0088cc; text-decoration: none;">发布 CloudRelease</a></li>
+<li><a href="https://www.huaweicloud.com/product/mobileapptest.html" class="xsj_link xsj_manu_link" target="_blank" style="color: #0088cc; text-decoration: none;">移动应用测试 MobileAPPTest</a></li>
+<li><a href="https://www.huaweicloud.com/product/cloudide.html" class="xsj_link xsj_manu_link" target="_blank" style="color: #0088cc; text-decoration: none;">CloudIDE</a></li>
+<li><a href="https://www.huaweicloud.com/product/classroom.html" class="xsj_link xsj_manu_link" target="_blank" style="color: #0088cc; text-decoration: none;">Classroom</a></li>
+<li><a href="https://www.huaweicloud.com/product/mirrors.html" class="xsj_link xsj_manu_link" target="_blank" style="color: #0088cc; text-decoration: none;">华为开源镜像站 Mirrors</a></li>
+</ul>
+<h3 class="xsj_heading_hash xsj_heading xsj_heading_h3" id="e9a1b9e79baee7aea1e7908620projectman_2" style="font-weight: bold; text-rendering: optimizelegibility; font-size: 1.6rem; margin-top: .6em; margin-right: 0; margin-bottom: .4em; margin-left: 0;"><div class="xiaoshujiang_element xsj_anchor" style="overflow: hidden; float: right;">
+  <a name="e9a1b9e79baee7aea1e7908620projectman_2" class="blank_anchor_name" target="_blank" style="color: #0088cc; text-decoration: none;"></a><a id="e9a1b9e79baee7aea1e7908620projectman_2" class="blank_anchor_id" target="_blank" style="color: #0088cc; text-decoration: none; float: right; width: 1px; height: 0px; visibility: hidden;"></a><a name="项目管理-projectman" class="blank_anchor_name" target="_blank" style="color: #0088cc; text-decoration: none;"></a><a id="项目管理-projectman" class="blank_anchor_id" target="_blank" style="color: #0088cc; text-decoration: none; float: right; width: 1px; height: 0px; visibility: hidden;"></a>
+</div>
+<span class="xsj_heading_content">项目管理 projectMan</span></h3>
+<blockquote class="markdown_blockquote" style="padding-top: 20px; padding-right: 20px; padding-bottom: 20px; padding-left: 20px; margin-top: 20px; margin-right: 0; margin-bottom: 20px; margin-left: 0; border-left: 5px solid rgba(153 , 153 , 153 , 0.2); background: rgba(204 , 204 , 204 , 0.2); position: relative;">
+<p class="xsj_paragraph xsj_paragraph_level_1" style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0;"><span class="xsj_placeholder_span"></span>项目管理是为软件开发团队提供敏捷项目管理与协作的云服务</p>
+<p class="xsj_paragraph xsj_paragraph_level_1" style="margin-top: 1.1em; margin-right: 0; margin-bottom: 1.1em; margin-left: 0;"><span class="xsj_placeholder_span"></span>提供了项目管理、需求规划和管理、缺陷管理、迭代计划管理、自定义工作流、进度跟踪、统计报表、wiki、项目文档托管等多种软件项目管理的基础特征。</p>
+<p class="xsj_paragraph xsj_paragraph_level_1" style="margin-top: 1.1em; margin-right: 0; margin-bottom: 1.1em; margin-left: 0;"><span class="xsj_placeholder_span"></span>预置两种项目模版</p>
+<ul class="markdown_ul" style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 1.1em; margin-right: 0; margin-bottom: 0; margin-left: 1.1em;">
+<li><span class="xsj_placeholder_span"></span>Scrum 项目模版：秉承严谨的敏捷scrum方法论和实践、适用于敏捷燃尽开发团队</li>
+<li><span class="xsj_placeholder_span"></span>看板项目模版：适用于轻量、简单管理的软件开发团队</li>
+</ul>
+</blockquote>
+<h5 class="xsj_heading_hash xsj_heading xsj_heading_h5" id="e4baa7e59381e4bc98e58abf_3" style="font-weight: bold; text-rendering: optimizelegibility; font-size: 1.4rem; margin-top: .5em; margin-right: 0; margin-bottom: .3em; margin-left: 0;"><div class="xiaoshujiang_element xsj_anchor" style="overflow: hidden; float: right;">
+  <a name="e4baa7e59381e4bc98e58abf_3" class="blank_anchor_name" target="_blank" style="color: #0088cc; text-decoration: none;"></a><a id="e4baa7e59381e4bc98e58abf_3" class="blank_anchor_id" target="_blank" style="color: #0088cc; text-decoration: none; float: right; width: 1px; height: 0px; visibility: hidden;"></a><a name="产品优势" class="blank_anchor_name" target="_blank" style="color: #0088cc; text-decoration: none;"></a><a id="产品优势" class="blank_anchor_id" target="_blank" style="color: #0088cc; text-decoration: none; float: right; width: 1px; height: 0px; visibility: hidden;"></a>
+</div>
+<span class="xsj_heading_content">产品优势</span></h5>
+<ul class="markdown_ul" style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 1.1em; margin-right: 0; margin-bottom: 1.1em; margin-left: 3em;">
+<li><span class="xsj_placeholder_span"></span>多场景多角色的数据分析
+<ul class="markdown_ul" style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 1em;">
+<li><span class="xsj_placeholder_span"></span>提供面向项目经理的自定义统计报表，多维度对比分析</li>
+<li><span class="xsj_placeholder_span"></span>提供面向项目经理、项目干系人的项目仪表盘，概览性掌握项目进展、风险</li>
+<li><span class="xsj_placeholder_span"></span>提供面向CTO、研发总监、部门经理的管理者看板，宏观了解多项目的竞争</li>
+</ul>
+</li>
+<li><span class="xsj_placeholder_span"></span>丰富的自定义
+<ul class="markdown_ul" style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 1em;">
+<li><span class="xsj_placeholder_span"></span>支持自定义需求、缺陷的模版</li>
+<li><span class="xsj_placeholder_span"></span>支持自定义需求、缺陷的工作流，支持自定义流转方向，支持自动流转</li>
+<li><span class="xsj_placeholder_span"></span>支持自定义角色、权限</li>
+</ul>
+</li>
+<li><span class="xsj_placeholder_span"></span>在线团队协作
+<ul class="markdown_ul" style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 1em;">
+<li><span class="xsj_placeholder_span"></span>云端服务，多角色跨地域协同开发，提升效率</li>
+<li><span class="xsj_placeholder_span"></span>在线评论、wiki在线协作、项目文档云托管</li>
+</ul>
+</li>
+</ul>
+<h5 class="xsj_heading_hash xsj_heading xsj_heading_h5" id="e4bba3e7a081e68998e7aea1_4" style="font-weight: bold; text-rendering: optimizelegibility; font-size: 1.4rem; margin-top: .5em; margin-right: 0; margin-bottom: .3em; margin-left: 0;"><div class="xiaoshujiang_element xsj_anchor" style="overflow: hidden; float: right;">
+  <a name="e4bba3e7a081e68998e7aea1_4" class="blank_anchor_name" target="_blank" style="color: #0088cc; text-decoration: none;"></a><a id="e4bba3e7a081e68998e7aea1_4" class="blank_anchor_id" target="_blank" style="color: #0088cc; text-decoration: none; float: right; width: 1px; height: 0px; visibility: hidden;"></a><a name="代码托管" class="blank_anchor_name" target="_blank" style="color: #0088cc; text-decoration: none;"></a><a id="代码托管" class="blank_anchor_id" target="_blank" style="color: #0088cc; text-decoration: none; float: right; width: 1px; height: 0px; visibility: hidden;"></a>
+</div>
+<span class="xsj_heading_content">代码托管</span></h5>
+<blockquote class="markdown_blockquote" style="padding-top: 20px; padding-right: 20px; padding-bottom: 20px; padding-left: 20px; margin-top: 20px; margin-right: 0; margin-bottom: 20px; margin-left: 0; border-left: 5px solid rgba(153 , 153 , 153 , 0.2); background: rgba(204 , 204 , 204 , 0.2); position: relative;">
+<p class="xsj_paragraph xsj_paragraph_level_1" style="margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0;"><span class="xsj_placeholder_span"></span>代码托管是面向软件开发者的给予git的在线代码托管服务，是具备安全管控、成员/权限管理、分支保护/合并、在线编辑、统计服务等于端代码仓库。</p>
+</blockquote>
+<h5 class="xsj_heading_hash xsj_heading xsj_heading_h5" id="e6b581e6b0b4e7babf_5" style="font-weight: bold; text-rendering: optimizelegibility; font-size: 1.4rem; margin-top: .5em; margin-right: 0; margin-bottom: .3em; margin-left: 0;"><div class="xiaoshujiang_element xsj_anchor" style="overflow: hidden; float: right;">
+  <a name="e6b581e6b0b4e7babf_5" class="blank_anchor_name" target="_blank" style="color: #0088cc; text-decoration: none;"></a><a id="e6b581e6b0b4e7babf_5" class="blank_anchor_id" target="_blank" style="color: #0088cc; text-decoration: none; float: right; width: 1px; height: 0px; visibility: hidden;"></a><a name="流水线" class="blank_anchor_name" target="_blank" style="color: #0088cc; text-decoration: none;"></a><a id="流水线" class="blank_anchor_id" target="_blank" style="color: #0088cc; text-decoration: none; float: right; width: 1px; height: 0px; visibility: hidden;"></a>
+</div>
+<span class="xsj_heading_content">流水线</span></h5>
+<blockquote class="markdown_blockquote" style="padding-top: 20px; padding-right: 20px; padding-bottom: 20px; padding-left: 20px; margin-top: 20px; margin-right: 0; margin-bottom: 20px; margin-left: 0; border-left: 5px solid rgba(153 , 153 , 153 , 0.2); background: rgba(204 , 204 , 204 , 0.2); position: relative;">
+<p class="xsj_paragraph xsj_paragraph_level_1" style="margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0;"><span class="xsj_placeholder_span"></span>流水线提供可视化、可定制的自动交付流水线，帮助企业缩短交付周期，提升交付效率</p>
+</blockquote>
+<ul class="markdown_ul" style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 1.1em; margin-right: 0; margin-bottom: 1.1em; margin-left: 3em;">
+<li><span class="xsj_placeholder_span"></span>流水线<strong class="markdown_strong_asterisk" style="font-weight: bold;">无需付费</strong>即可使用，但需配合DevCloud其他服务使用，</li>
+</ul>
+<blockquote class="markdown_blockquote" style="padding-top: 20px; padding-right: 20px; padding-bottom: 20px; padding-left: 20px; margin-top: 20px; margin-right: 0; margin-bottom: 20px; margin-left: 0; border-left: 5px solid rgba(153 , 153 , 153 , 0.2); background: rgba(204 , 204 , 204 , 0.2); position: relative;">
+<p class="xsj_paragraph xsj_paragraph_level_1" style="margin-top: 0; margin-right: 0; margin-bottom: 1.1em; margin-left: 0;"><span class="xsj_placeholder_span"></span>流水线服务具有一下特性</p>
+<ul class="markdown_ul" style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 1.1em; margin-right: 0; margin-bottom: 0; margin-left: 1.1em;">
+<li><span class="xsj_placeholder_span"></span>编译构建、代码检查、子流水线、部署、流水线控制、扩展类型、接口测试、发布等多种任务类型</li>
+</ul>
+</blockquote>
+<h5 class="xsj_heading_hash xsj_heading xsj_heading_h5" id="e4bba3e7a081e6a380e69fa5_6" style="font-weight: bold; text-rendering: optimizelegibility; font-size: 1.4rem; margin-top: .5em; margin-right: 0; margin-bottom: .3em; margin-left: 0;"><div class="xiaoshujiang_element xsj_anchor" style="overflow: hidden; float: right;">
+  <a name="e4bba3e7a081e6a380e69fa5_6" class="blank_anchor_name" target="_blank" style="color: #0088cc; text-decoration: none;"></a><a id="e4bba3e7a081e6a380e69fa5_6" class="blank_anchor_id" target="_blank" style="color: #0088cc; text-decoration: none; float: right; width: 1px; height: 0px; visibility: hidden;"></a><a name="代码检查" class="blank_anchor_name" target="_blank" style="color: #0088cc; text-decoration: none;"></a><a id="代码检查" class="blank_anchor_id" target="_blank" style="color: #0088cc; text-decoration: none; float: right; width: 1px; height: 0px; visibility: hidden;"></a>
+</div>
+<span class="xsj_heading_content">代码检查</span></h5>
+<p class="xsj_paragraph xsj_paragraph_level_0" style="margin-top: 1.1em; margin-right: 0; margin-bottom: 1.6em; margin-left: 0;">​	代码检查是基于云端实现的代码质量管理服务，软件开发者可在编码完成后执行多语言的代码静态检查和安全检查，获取全面的质量报告，并提供缺陷的分组查看与改进建议，有效管控代码质量。</p>
+<ul class="markdown_ul" style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 1.1em; margin-right: 0; margin-bottom: 1.1em; margin-left: 3em;">
+<li><span class="xsj_placeholder_span"></span>代码检查支持目前主流的所有开发语言</li>
+<li><span class="xsj_placeholder_span"></span>针对代码缺陷，提供影响说明</li>
+<li><span class="xsj_placeholder_span"></span>精确定位代码行，支持在线查看并修复代码问题</li>
+<li><span class="xsj_placeholder_span"></span>聚焦新问题处理，预防新的技术债务产生</li>
+<li><span class="xsj_placeholder_span"></span>问题责任人自动归属</li>
+</ul>
+<h5 class="xsj_heading_hash xsj_heading xsj_heading_h5" id="e7bc96e8af91e69e84e5bbba_7" style="font-weight: bold; text-rendering: optimizelegibility; font-size: 1.4rem; margin-top: .5em; margin-right: 0; margin-bottom: .3em; margin-left: 0;"><div class="xiaoshujiang_element xsj_anchor" style="overflow: hidden; float: right;">
+  <a name="e7bc96e8af91e69e84e5bbba_7" class="blank_anchor_name" target="_blank" style="color: #0088cc; text-decoration: none;"></a><a id="e7bc96e8af91e69e84e5bbba_7" class="blank_anchor_id" target="_blank" style="color: #0088cc; text-decoration: none; float: right; width: 1px; height: 0px; visibility: hidden;"></a><a name="编译构建" class="blank_anchor_name" target="_blank" style="color: #0088cc; text-decoration: none;"></a><a id="编译构建" class="blank_anchor_id" target="_blank" style="color: #0088cc; text-decoration: none; float: right; width: 1px; height: 0px; visibility: hidden;"></a>
+</div>
+<span class="xsj_heading_content">编译构建</span></h5>
+<blockquote class="markdown_blockquote" style="padding-top: 20px; padding-right: 20px; padding-bottom: 20px; padding-left: 20px; margin-top: 20px; margin-right: 0; margin-bottom: 20px; margin-left: 0; border-left: 5px solid rgba(153 , 153 , 153 , 0.2); background: rgba(204 , 204 , 204 , 0.2); position: relative;">
+<p class="xsj_paragraph xsj_paragraph_level_1" style="margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0;"><span class="xsj_placeholder_span"></span>编译构建是指把软件的源代码编译成目标文件，并把配置文件和资源文件等打包的过程</p>
+</blockquote>
+<blockquote class="markdown_blockquote" style="padding-top: 20px; padding-right: 20px; padding-bottom: 20px; padding-left: 20px; margin-top: 20px; margin-right: 0; margin-bottom: 20px; margin-left: 0; border-left: 5px solid rgba(153 , 153 , 153 , 0.2); background: rgba(204 , 204 , 204 , 0.2); position: relative;">
+<p class="xsj_paragraph xsj_paragraph_level_1" style="margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0;"><span class="xsj_placeholder_span"></span>编译构建服务为开发者提供配置简单的混合语言构建平台，实现编译构建云端化，支撑企业实现持续交付,缩短交付周期，提升交付效率。</p>
+</blockquote>
+<ul class="markdown_ul" style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 1.1em; margin-right: 0; margin-bottom: 1.1em; margin-left: 3em;">
+<li><span class="xsj_placeholder_span"></span>产品优势
+<ul class="markdown_ul" style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 1em;">
+<li><span class="xsj_placeholder_span"></span>全场景：支持多种语言多种框架</li>
+<li><span class="xsj_placeholder_span"></span>快速：云端海量资源并行构建，实现本地构建无法企及的构建速度</li>
+<li><span class="xsj_placeholder_span"></span>易扩展：灵活对接不同的代码托管服务</li>
+<li><strong class="markdown_strong_asterisk" style="font-weight: bold;">构建成本低</strong>：按照时间占用资源及时长支付费用，杜绝企业硬件资源及维护资金的投入</li>
+</ul>
+</li>
+</ul>
+<h5 class="xsj_heading_hash xsj_heading xsj_heading_h5" id="e983a8e7bdb2e69c8de58aa1_8" style="font-weight: bold; text-rendering: optimizelegibility; font-size: 1.4rem; margin-top: .5em; margin-right: 0; margin-bottom: .3em; margin-left: 0;"><div class="xiaoshujiang_element xsj_anchor" style="overflow: hidden; float: right;">
+  <a name="e983a8e7bdb2e69c8de58aa1_8" class="blank_anchor_name" target="_blank" style="color: #0088cc; text-decoration: none;"></a><a id="e983a8e7bdb2e69c8de58aa1_8" class="blank_anchor_id" target="_blank" style="color: #0088cc; text-decoration: none; float: right; width: 1px; height: 0px; visibility: hidden;"></a><a name="部署服务" class="blank_anchor_name" target="_blank" style="color: #0088cc; text-decoration: none;"></a><a id="部署服务" class="blank_anchor_id" target="_blank" style="color: #0088cc; text-decoration: none; float: right; width: 1px; height: 0px; visibility: hidden;"></a>
+</div>
+<span class="xsj_heading_content">部署服务</span></h5>
+<blockquote class="markdown_blockquote" style="padding-top: 20px; padding-right: 20px; padding-bottom: 20px; padding-left: 20px; margin-top: 20px; margin-right: 0; margin-bottom: 20px; margin-left: 0; border-left: 5px solid rgba(153 , 153 , 153 , 0.2); background: rgba(204 , 204 , 204 , 0.2); position: relative;">
+<p class="xsj_paragraph xsj_paragraph_level_1" style="margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0;"><span class="xsj_placeholder_span"></span>部署提供可视化、一键式部署服务，支持部署到虚拟机或者容器，提供Tomcat、SpringBoot等模版或者资源组装编排原子步骤进行部署，支持并行部署和流水线无缝集成，实现部署环境标准化和部署过程自动化</p>
+</blockquote>
+<h5 class="xsj_heading_hash xsj_heading xsj_heading_h5" id="e4ba91e6b58bcloudtest_9" style="font-weight: bold; text-rendering: optimizelegibility; font-size: 1.4rem; margin-top: .5em; margin-right: 0; margin-bottom: .3em; margin-left: 0;"><div class="xiaoshujiang_element xsj_anchor" style="overflow: hidden; float: right;">
+  <a name="e4ba91e6b58bcloudtest_9" class="blank_anchor_name" target="_blank" style="color: #0088cc; text-decoration: none;"></a><a id="e4ba91e6b58bcloudtest_9" class="blank_anchor_id" target="_blank" style="color: #0088cc; text-decoration: none; float: right; width: 1px; height: 0px; visibility: hidden;"></a><a name="云测cloudtest" class="blank_anchor_name" target="_blank" style="color: #0088cc; text-decoration: none;"></a><a id="云测cloudtest" class="blank_anchor_id" target="_blank" style="color: #0088cc; text-decoration: none; float: right; width: 1px; height: 0px; visibility: hidden;"></a>
+</div>
+<span class="xsj_heading_content">云测cloudTest</span></h5>
+<p class="xsj_paragraph xsj_paragraph_level_0" style="margin-top: 1.1em; margin-right: 0; margin-bottom: 1.6em; margin-left: 0;">云测是面向软件开发者提供的一站式云端测试平台，覆盖功能测试、接口测试，融合DevOps敏捷测试理念，帮助用户高效管理测试活动，保障产品高质量交付。</p>
+<ul class="markdown_ul" style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 1.1em; margin-right: 0; margin-bottom: 1.1em; margin-left: 3em;">
+<li>
+<p class="xsj_paragraph xsj_paragraph_level_2" style="margin-top: 1.1em; margin-right: 0; margin-bottom: 1.6em; margin-left: 0;"><span class="xsj_placeholder_span"></span>产品优势</p>
+<ul class="markdown_ul" style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 1em;">
+<li>
+<p class="xsj_paragraph xsj_paragraph_level_4" style="margin-top: 1.1em; margin-right: 0; margin-bottom: 1.6em; margin-left: 0;"><span class="xsj_placeholder_span"></span>高效</p>
+<p class="xsj_paragraph xsj_paragraph_level_4" style="margin-top: 1.1em; margin-right: 0; margin-bottom: 1.6em; margin-left: 0;"><span class="xsj_placeholder_span"></span>一站式云端测试平台，整合功能测试和接口测试，高效协同，支持不同规模团队敏捷测试流程，开展用例测试、测试执行、缺陷提交、生成报告，提高测试效率</p>
+</li>
+<li>
+<p class="xsj_paragraph xsj_paragraph_level_4" style="margin-top: 1.1em; margin-right: 0; margin-bottom: 1.6em; margin-left: 0;"><span class="xsj_placeholder_span"></span>双向追溯</p>
+<p class="xsj_paragraph xsj_paragraph_level_4" style="margin-top: 1.1em; margin-right: 0; margin-bottom: 1.6em; margin-left: 0;"><span class="xsj_placeholder_span"></span>通过需求-用例-缺陷双向追溯，确保所有的需求都能被正确执行，杜绝漏侧、误测</p>
+</li>
+<li>
+<p class="xsj_paragraph xsj_paragraph_level_4" style="margin-top: 1.1em; margin-right: 0; margin-bottom: 1.6em; margin-left: 0;"><span class="xsj_placeholder_span"></span>自动化测试</p>
+<p class="xsj_paragraph xsj_paragraph_level_4" style="margin-top: 1.1em; margin-right: 0; margin-bottom: 1.6em; margin-left: 0;"><span class="xsj_placeholder_span"></span>基于接口URL或Swagger文档快速编排接口测试，集成流水线，支持微服务测试、分层自动化测试</p>
+</li>
+<li>
+<p class="xsj_paragraph xsj_paragraph_level_4" style="margin-top: 1.1em; margin-right: 0; margin-bottom: 1.6em; margin-left: 0;"><span class="xsj_placeholder_span"></span>进度可视化</p>
+<p class="xsj_paragraph xsj_paragraph_level_4" style="margin-top: 1.1em; margin-right: 0; margin-bottom: 1.6em; margin-left: 0;"><span class="xsj_placeholder_span"></span>仪表盘实时统计测试进度、缺陷、测试需求覆盖率，多维度产品质量看板，多方位评估产品质量，保障产品高效验收。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h5 class="xsj_heading_hash xsj_heading xsj_heading_h5" id="e7a7bbe58aa8e5ba94e794a8e6b58be8af95_10" style="font-weight: bold; text-rendering: optimizelegibility; font-size: 1.4rem; margin-top: .5em; margin-right: 0; margin-bottom: .3em; margin-left: 0;"><div class="xiaoshujiang_element xsj_anchor" style="overflow: hidden; float: right;">
+  <a name="e7a7bbe58aa8e5ba94e794a8e6b58be8af95_10" class="blank_anchor_name" target="_blank" style="color: #0088cc; text-decoration: none;"></a><a id="e7a7bbe58aa8e5ba94e794a8e6b58be8af95_10" class="blank_anchor_id" target="_blank" style="color: #0088cc; text-decoration: none; float: right; width: 1px; height: 0px; visibility: hidden;"></a><a name="移动应用测试" class="blank_anchor_name" target="_blank" style="color: #0088cc; text-decoration: none;"></a><a id="移动应用测试" class="blank_anchor_id" target="_blank" style="color: #0088cc; text-decoration: none; float: right; width: 1px; height: 0px; visibility: hidden;"></a>
+</div>
+<span class="xsj_heading_content">移动应用测试</span></h5>
+<p class="xsj_paragraph xsj_paragraph_level_0" style="margin-top: 1.1em; margin-right: 0; margin-bottom: 1.6em; margin-left: 0;">移动应用测试是联合TestBrid提供的移动兼容性测试服务。提供TOP流行机型、数百名测试专家，使用图像识别和精准控件识别技术，只需提供APP应用，便可生成详细兼容性测试报告</p>
+<ul class="markdown_ul" style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 1.1em; margin-right: 0; margin-bottom: 1.1em; margin-left: 3em;">
+<li><span class="xsj_placeholder_span"></span>服务特性
+<ul class="markdown_ul" style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 1em;">
+<li><span class="xsj_placeholder_span"></span>机型全面，提供TOP机型，覆盖98%主流机型；快速上新、快速上线主流机型</li>
+<li><span class="xsj_placeholder_span"></span>全自动化测试。无需提供测试脚本，无需人工编写用例，只需提供Android、IOS应用安装文件，选取测试套餐，即可输出详尽测试报告</li>
+<li><span class="xsj_placeholder_span"></span>测试深、速度快，深入测试包括UI异常、闪退、卡死、程序异常、黑屏等兼容性问题。用户只需提交任务，即可快速得到专业完整的测试报告</li>
+<li><span class="xsj_placeholder_span"></span>详尽在线测试报告，支持一键下载。提供详细测试分析、问题上下午信息、全过程截图和日志。</li>
+<li><span class="xsj_placeholder_span"></span>快速定位、解决问题，丰富的问题描述信息，支持操作截图和日志联动分析，支持影响度排序，支持终端等多维度筛选问题，帮助准确定位问题。</li>
+</ul>
+</li>
+</ul>
+</div>
+</body>
+</div></div>
+<script>
+  !function(e){function t(o){if(n[o])return n[o].exports;var l=n[o]={i:o,l:!1,exports:{}};return e[o].call(l.exports,l,l.exports,t),l.l=!0,l.exports}var n={};t.m=e,t.c=n,t.d=function(e,n,o){t.o(e,n)||Object.defineProperty(e,n,{configurable:!1,enumerable:!0,get:o})},t.n=function(e){var n=e&&e.__esModule?function(){return e.default}:function(){return e};return t.d(n,"a",n),n},t.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},t.p="",t(t.s=0)}([function(e,t,n){(function(o){var l,r,i;!function(n,o){r=[],l=o(n),void 0!==(i="function"==typeof l?l.apply(t,r):l)&&(e.exports=i)}(void 0!==o?o:this.window||this.global,function(e){"use strict";function t(){for(var e={},t=0;t<arguments.length;t++){var n=arguments[t];for(var o in n)m.call(n,o)&&(e[o]=n[o])}return e}function o(e,t,n){t||(t=250);var o,l;return function(){var r=n||this,i=+new Date,s=arguments;o&&i<o+t?(clearTimeout(l),l=setTimeout(function(){o=i,e.apply(r,s)},t)):(o=i,e.apply(r,s))}}var l,r,i=n(2),s={},c={},a=n(3),u=n(4);if("undefined"!=typeof window){var d,f=!!e.document.querySelector&&!!e.addEventListener,m=Object.prototype.hasOwnProperty;return c.destroy=function(){if(!s.skipRendering)try{document.querySelector(s.tocSelector).innerHTML=""}catch(e){console.warn("Element not found: "+s.tocSelector)}s.scrollContainer&&document.querySelector(s.scrollContainer)?(document.querySelector(s.scrollContainer).removeEventListener("scroll",this._scrollListener,!1),document.querySelector(s.scrollContainer).removeEventListener("resize",this._scrollListener,!1),l&&document.querySelector(s.scrollContainer).removeEventListener("click",this._clickListener,!1)):(document.removeEventListener("scroll",this._scrollListener,!1),document.removeEventListener("resize",this._scrollListener,!1),l&&document.removeEventListener("click",this._clickListener,!1))},c.init=function(e){if(f&&(s=t(i,e||{}),this.options=s,this.state={},s.scrollSmooth&&(s.duration=s.scrollSmoothDuration,s.offset=s.scrollSmoothOffset,c.scrollSmooth=n(5).initSmoothScrolling(s)),l=a(s),r=u(s),this._buildHtml=l,this._parseContent=r,c.destroy(),null!==(d=r.selectHeadings(s.contentSelector,s.headingSelector)))){var m=r.nestHeadingsArray(d),h=m.nest;s.skipRendering||l.render(s.tocSelector,h),this._scrollListener=o(function(e){l.updateToc(d);var t=e&&e.target&&e.target.scrollingElement&&0===e.target.scrollingElement.scrollTop;(e&&(0===e.eventPhase||null===e.currentTarget)||t)&&(l.updateToc(d),s.scrollEndCallback&&s.scrollEndCallback(e))},s.throttleTimeout),this._scrollListener(),s.scrollContainer&&document.querySelector(s.scrollContainer)?(document.querySelector(s.scrollContainer).addEventListener("scroll",this._scrollListener,!1),document.querySelector(s.scrollContainer).addEventListener("resize",this._scrollListener,!1)):(document.addEventListener("scroll",this._scrollListener,!1),document.addEventListener("resize",this._scrollListener,!1));var p=null;return this._clickListener=o(function(e){s.scrollSmooth&&l.disableTocAnimation(e),l.updateToc(d),p&&clearTimeout(p),p=setTimeout(function(){l.enableTocAnimation()},s.scrollSmoothDuration)},s.throttleTimeout),s.scrollContainer&&document.querySelector(s.scrollContainer)?document.querySelector(s.scrollContainer).addEventListener("click",this._clickListener,!1):document.addEventListener("click",this._clickListener,!1),this}},c.refresh=function(e){c.destroy(),c.init(e||this.options)},e.tocbot=c,c}})}).call(t,n(1))},function(e,t){var n;n=function(){return this}();try{n=n||Function("return this")()||(0,eval)("this")}catch(e){"object"==typeof window&&(n=window)}e.exports=n},function(e,t){e.exports={tocSelector:".js-toc",contentSelector:".js-toc-content",headingSelector:"h1, h2, h3",ignoreSelector:".js-toc-ignore",hasInnerContainers:!1,linkClass:"toc-link",extraLinkClasses:"",activeLinkClass:"is-active-link",listClass:"toc-list",extraListClasses:"",isCollapsedClass:"is-collapsed",collapsibleClass:"is-collapsible",listItemClass:"toc-list-item",activeListItemClass:"is-active-li",collapseDepth:0,scrollSmooth:!0,scrollSmoothDuration:420,scrollSmoothOffset:0,scrollEndCallback:function(e){},headingsOffset:1,throttleTimeout:50,positionFixedSelector:null,positionFixedClass:"is-position-fixed",fixedSidebarOffset:"auto",includeHtml:!1,onClick:!1,orderedList:!0,scrollContainer:null,skipRendering:!1}},function(e,t){e.exports=function(e){function t(e,n){var r=n.appendChild(o(e));if(e.children.length){var i=l(e.isCollapsed);e.children.forEach(function(e){t(e,i)}),r.appendChild(i)}}function n(e,n){var o=l(!1);n.forEach(function(e){t(e,o)});var r=document.querySelector(e);if(null!==r)return r.firstChild&&r.removeChild(r.firstChild),0===n.length?r:r.appendChild(o)}function o(t){var n=document.createElement("li"),o=document.createElement("a");return e.listItemClass&&n.setAttribute("class",e.listItemClass),e.onClick&&(o.onclick=e.onClick),e.includeHtml&&t.childNodes.length?d.call(t.childNodes,function(e){o.appendChild(e.cloneNode(!0))}):o.textContent=t.textContent,o.setAttribute("href","#"+t.id),o.setAttribute("class",e.linkClass+p+"node-name--"+t.nodeName+p+e.extraLinkClasses),n.appendChild(o),n}function l(t){var n=e.orderedList?"ol":"ul",o=document.createElement(n),l=e.listClass+p+e.extraListClasses;return t&&(l+=p+e.collapsibleClass,l+=p+e.isCollapsedClass),o.setAttribute("class",l),o}function r(){if(e.scrollContainer&&document.querySelector(e.scrollContainer))var t=document.querySelector(e.scrollContainer).scrollTop;else var t=document.documentElement.scrollTop||m.scrollTop;var n=document.querySelector(e.positionFixedSelector);"auto"===e.fixedSidebarOffset&&(e.fixedSidebarOffset=document.querySelector(e.tocSelector).offsetTop),t>e.fixedSidebarOffset?-1===n.className.indexOf(e.positionFixedClass)&&(n.className+=p+e.positionFixedClass):n.className=n.className.split(p+e.positionFixedClass).join("")}function i(t){var n=0;return t!=document.querySelector(e.contentSelector&&null!=t)&&(n=t.offsetTop,e.hasInnerContainers&&(n+=i(t.offsetParent))),n}function s(t){if(e.scrollContainer&&document.querySelector(e.scrollContainer))var n=document.querySelector(e.scrollContainer).scrollTop;else var n=document.documentElement.scrollTop||m.scrollTop;e.positionFixedSelector&&r();var o,l=t;if(h&&null!==document.querySelector(e.tocSelector)&&l.length>0){f.call(l,function(t,r){if(i(t)>n+e.headingsOffset+10){return o=l[0===r?r:r-1],!0}if(r===l.length-1)return o=l[l.length-1],!0});var s=document.querySelector(e.tocSelector).querySelectorAll("."+e.linkClass);d.call(s,function(t){t.className=t.className.split(p+e.activeLinkClass).join("")});var a=document.querySelector(e.tocSelector).querySelectorAll("."+e.listItemClass);d.call(a,function(t){t.className=t.className.split(p+e.activeListItemClass).join("")});var u=document.querySelector(e.tocSelector).querySelector("."+e.linkClass+".node-name--"+o.nodeName+'[href="#'+o.id+'"]');-1===u.className.indexOf(e.activeLinkClass)&&(u.className+=p+e.activeLinkClass);var C=u.parentNode;C&&-1===C.className.indexOf(e.activeListItemClass)&&(C.className+=p+e.activeListItemClass);var v=document.querySelector(e.tocSelector).querySelectorAll("."+e.listClass+"."+e.collapsibleClass);d.call(v,function(t){-1===t.className.indexOf(e.isCollapsedClass)&&(t.className+=p+e.isCollapsedClass)}),u.nextSibling&&-1!==u.nextSibling.className.indexOf(e.isCollapsedClass)&&(u.nextSibling.className=u.nextSibling.className.split(p+e.isCollapsedClass).join("")),c(u.parentNode.parentNode)}}function c(t){return-1!==t.className.indexOf(e.collapsibleClass)&&-1!==t.className.indexOf(e.isCollapsedClass)?(t.className=t.className.split(p+e.isCollapsedClass).join(""),c(t.parentNode.parentNode)):t}function a(t){var n=t.target||t.srcElement;"string"==typeof n.className&&-1!==n.className.indexOf(e.linkClass)&&(h=!1)}function u(){h=!0}var d=[].forEach,f=[].some,m=document.body,h=!0,p=" ";return{enableTocAnimation:u,disableTocAnimation:a,render:n,updateToc:s}}},function(e,t){e.exports=function(e){function t(e){return e[e.length-1]}function n(e){return+e.nodeName.split("H").join("")}function o(t){var o={id:t.id,children:[],nodeName:t.nodeName,headingLevel:n(t),textContent:t.textContent.trim()};return e.includeHtml&&(o.childNodes=t.childNodes),o}function l(l,r){for(var i=o(l),s=n(l),c=r,a=t(c),u=a?a.headingLevel:0,d=s-u;d>0;)a=t(c),a&&void 0!==a.children&&(c=a.children),d--;return s>=e.collapseDepth&&(i.isCollapsed=!0),c.push(i),c}function r(t,n){var o=n;e.ignoreSelector&&(o=n.split(",").map(function(t){return t.trim()+":not("+e.ignoreSelector+")"}));try{return document.querySelector(t).querySelectorAll(o)}catch(e){return console.warn("Element not found: "+t),null}}function i(e){return s.call(e,function(e,t){return l(o(t),e.nest),e},{nest:[]})}var s=[].reduce;return{nestHeadingsArray:i,selectHeadings:r}}},function(e,t){function n(e){function t(e){return"a"===e.tagName.toLowerCase()&&(e.hash.length>0||"#"===e.href.charAt(e.href.length-1))&&(n(e.href)===s||n(e.href)+"#"===s)}function n(e){return e.slice(0,e.lastIndexOf("#"))}function l(e){var t=document.getElementById(e.substring(1));t&&(/^(?:a|select|input|button|textarea)$/i.test(t.tagName)||(t.tabIndex=-1),t.focus())}!function(){document.documentElement.style}();var r=e.duration,i=e.offset,s=location.hash?n(location.href):location.href;!function(){function n(n){!t(n.target)||n.target.className.indexOf("no-smooth-scroll")>-1||"#"===n.target.href.charAt(n.target.href.length-2)&&"!"===n.target.href.charAt(n.target.href.length-1)||-1===n.target.className.indexOf(e.linkClass)||o(n.target.hash,{duration:r,offset:i,callback:function(){l(n.target.hash)}})}document.body.addEventListener("click",n,!1)}()}function o(e,t){function n(e){i=e-r,window.scrollTo(0,c.easing(i,s,u,d)),i<d?requestAnimationFrame(n):o()}function o(){window.scrollTo(0,s+u),"function"==typeof c.callback&&c.callback()}function l(e,t,n,o){return(e/=o/2)<1?n/2*e*e+t:(e--,-n/2*(e*(e-2)-1)+t)}var r,i,s=window.pageYOffset,c={duration:t.duration,offset:t.offset||0,callback:t.callback,easing:t.easing||l},a=document.querySelector('[id="'+decodeURI(e).split("#").join("")+'"]'),u="string"==typeof e?c.offset+(e?a&&a.getBoundingClientRect().top||0:-(document.documentElement.scrollTop||document.body.scrollTop)):e,d="function"==typeof c.duration?c.duration(u):c.duration;requestAnimationFrame(function(e){r=e,n(e)})}t.initSmoothScrolling=n}]);
+</script>
+<script>
+  var xsjRoot = document.querySelector('.xsj_root');
+  xsjRoot.classList.add('xsj_container_toc')
+tocbot.init({
+  // Where to render the table of contents.
+  tocSelector: '#nav',
+  // Where to grab the headings to build the table of contents.
+  contentSelector: '#wmd-preview',
+  // Which headings to grab inside of the contentSelector element.
+  headingSelector: '.html_preview>h1, .html_preview>h2,.html_preview>h3,.html_preview>h4,.html_preview>h5,.html_preview>h6',
+});
+var tocToggle = document.querySelector('#toc-toggle');
+var toggler = function(e) {
+    e.preventDefault();
+    var tocContainer = document.querySelector('.xsj_container_toc');
+    var icon = document.querySelector('.toc-toggle-icon');
+    var tip = document.querySelector('.toc-toggle-tip');
+    if (tocContainer.classList.contains('hide_toc')){
+        tocContainer.classList.remove('hide_toc');
+        icon.innerHTML = "←";
+        tip.innerHTML = "关闭目录";
+        
+    } else {
+        tocContainer.classList.add('hide_toc');
+        icon.innerHTML = "→";
+        tip.innerHTML = "展开目录";
+    }
+}
+tocToggle.addEventListener('click', toggler, false);
+</script>
+</body></html>
 
- - 多场景多角色的数据分析
-     - 提供面向项目经理的自定义统计报表，多维度对比分析
-     - 提供面向项目经理、项目干系人的项目仪表盘，概览性掌握项目进展、风险
-     - 提供面向CTO、研发总监、部门经理的管理者看板，宏观了解多项目的竞争
-- 丰富的自定义
-    - 支持自定义需求、缺陷的模版
-    - 支持自定义需求、缺陷的工作流，支持自定义流转方向，支持自动流转
-    - 支持自定义角色、权限
-- 在线团队协作
-    - 云端服务，多角色跨地域协同开发，提升效率
-    - 在线评论、wiki在线协作、项目文档云托管
-
-##### 代码托管
-
->   代码托管是面向软件开发者的给予git的在线代码托管服务，是具备安全管控、成员/权限管理、分支保护/合并、在线编辑、统计服务等于端代码仓库。
-
-##### 流水线
-
->   流水线提供可视化、可定制的自动交付流水线，帮助企业缩短交付周期，提升交付效率
-
--   流水线**无需付费**即可使用，但需配合DevCloud其他服务使用，
-
->   流水线服务具有一下特性
->
->   -   编译构建、代码检查、子流水线、部署、流水线控制、扩展类型、接口测试、发布等多种任务类型
-
-##### 代码检查
-
-​	代码检查是基于云端实现的代码质量管理服务，软件开发者可在编码完成后执行多语言的代码静态检查和安全检查，获取全面的质量报告，并提供缺陷的分组查看与改进建议，有效管控代码质量。
-
--   代码检查支持目前主流的所有开发语言
--   针对代码缺陷，提供影响说明
--   精确定位代码行，支持在线查看并修复代码问题
--   聚焦新问题处理，预防新的技术债务产生
--   问题责任人自动归属
-
-##### 编译构建
-
->    编译构建是指把软件的源代码编译成目标文件，并把配置文件和资源文件等打包的过程
-
->   编译构建服务为开发者提供配置简单的混合语言构建平台，实现编译构建云端化，支撑企业实现持续交付,缩短交付周期，提升交付效率。
-
--   产品优势
-    -   全场景：支持多种语言多种框架
-    -   快速：云端海量资源并行构建，实现本地构建无法企及的构建速度
-    -   易扩展：灵活对接不同的代码托管服务
-    -   **构建成本低**：按照时间占用资源及时长支付费用，杜绝企业硬件资源及维护资金的投入
-
-##### 部署服务
-
->   部署提供可视化、一键式部署服务，支持部署到虚拟机或者容器，提供Tomcat、SpringBoot等模版或者资源组装编排原子步骤进行部署，支持并行部署和流水线无缝集成，实现部署环境标准化和部署过程自动化
-
-##### 云测cloudTest
-
-云测是面向软件开发者提供的一站式云端测试平台，覆盖功能测试、接口测试，融合DevOps敏捷测试理念，帮助用户高效管理测试活动，保障产品高质量交付。
-
--   产品优势
-
-    -   高效
-
-        一站式云端测试平台，整合功能测试和接口测试，高效协同，支持不同规模团队敏捷测试流程，开展用例测试、测试执行、缺陷提交、生成报告，提高测试效率
-
-    -   双向追溯
-
-        通过需求-用例-缺陷双向追溯，确保所有的需求都能被正确执行，杜绝漏侧、误测
-
-    -   自动化测试
-
-        基于接口URL或Swagger文档快速编排接口测试，集成流水线，支持微服务测试、分层自动化测试
-
-    -   进度可视化
-
-        仪表盘实时统计测试进度、缺陷、测试需求覆盖率，多维度产品质量看板，多方位评估产品质量，保障产品高效验收。
-
-##### 移动应用测试
-
-移动应用测试是联合TestBrid提供的移动兼容性测试服务。提供TOP流行机型、数百名测试专家，使用图像识别和精准控件识别技术，只需提供APP应用，便可生成详细兼容性测试报告
-
--   服务特性
-    -   机型全面，提供TOP机型，覆盖98%主流机型；快速上新、快速上线主流机型
-    -   全自动化测试。无需提供测试脚本，无需人工编写用例，只需提供Android、IOS应用安装文件，选取测试套餐，即可输出详尽测试报告
-    -   测试深、速度快，深入测试包括UI异常、闪退、卡死、程序异常、黑屏等兼容性问题。用户只需提交任务，即可快速得到专业完整的测试报告
-    -   详尽在线测试报告，支持一键下载。提供详细测试分析、问题上下午信息、全过程截图和日志。
-    -   快速定位、解决问题，丰富的问题描述信息，支持操作截图和日志联动分析，支持影响度排序，支持终端等多维度筛选问题，帮助准确定位问题。
 
