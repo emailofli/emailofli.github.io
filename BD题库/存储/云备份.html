@@ -1,46 +1,408 @@
-<h2>云备份</h2>
-<p>云备份为云内的弹性云服务器、云耀云服务器、裸金属服务器、云硬盘、SFS Turbo文件系统、云下VMware虚拟化环境，提供简单易用的<strong>备份服务</strong>，针对病毒入侵、人为误删、软硬件故障等场景，可将数据恢复到任意备份点。</p>
-<h4>产品架构</h4>
-<blockquote><p>云备份由备份、存储库和策略组成</p>
+<!DOCTYPE html><html lang="en"><head>
+<title> 云备份</title>
+  <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="()">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/svg-with-js.css" crossorigin="anonymous">
+<style type="text/css">
+#nav{
+  display: none;
+}
+.xsj_container_toc>#nav{
+    display: block;
+    background-color: #f9f9f9;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    overflow-y: auto;
+    width: 300px;
+    z-index: 1;
+}
+.xsj_container_toc>#wmd-preview{
+    margin-left: 300px;
+}
+.hide_toc.xsj_container_toc>#nav{
+    display: none;
+}
+
+.hide_toc.xsj_container_toc>#wmd-preview{
+    margin-left:  50px;
+}
+
+#toc-nav {
+    position: fixed;
+    z-index: 2;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    min-width: 1.33em;
+    border-top-right-radius: 2rem;
+    box-shadow: 0 0 2px;
+    font-size: 1.5em;
+    color: black;
+}
+
+#toc-nav .toc-toggle-tip{
+    display:none;
+}
+#toc-nav:hover .toc-toggle-tip{
+    display:initial;
+    margin-right: .5em;
+    }
+</style>
+<style type="text/css">
+.tocbot{overflow-y:auto}.tocbot>.toc-list{overflow:hidden;position:relative}.tocbot>.toc-list li{list-style:none}.toc-list{margin:0;padding-left:10px}a.toc-link{color:currentColor;height:100%}.is-collapsible{max-height:1000px;overflow:hidden;transition:all 300ms ease-in-out}.is-collapsed{max-height:0}.is-position-fixed{position:fixed !important;top:0}.is-active-link{font-weight:700}.toc-link::before{background-color:#EEE;content:' ';display:inline-block;height:inherit;left:0;margin-top:-1px;position:absolute;width:2px}.is-active-link::before{background-color:#54BC4B}
+</style>
+<style type="text/css">
+
+</style>
+</head><body>
+<div class="xsj_root">
+<p id="toc-nav"><a id="toc-toggle" href="javascript:void();"><span class="toc-toggle-icon">←</span> <span class="toc-toggle-tip">关闭目录</span></a></p>
+<nav id="nav" class="tocbot"></nav>
+<div class="preview" id="wmd-preview">
+<style>
+a:focus {
+	outline:	thin dotted #333;
+	outline:	5px auto -webkit-focus-ring-color;
+	outline-offset:	-2px;
+}
+a:hover {
+	outline:	0;
+}
+a:active {
+	outline:	0;
+}
+a:hover {
+	color:	#005580 !important;
+	text-decoration:	underline !important;
+}
+blockquote   small:before {
+	content:	'\2014 \00A0';
+}
+.hljs-folder:before {
+	top:	0;
+	content:	'';
+	width:	14px;
+	height:	12px;
+	margin-top:	0px;
+	margin-right:	3px;
+	position:	relative;
+	display:	inline-block;
+	background-size:	14px;
+	background-repeat:	no-repeat;
+}
+.hljs-file:before {
+	top:	0;
+	content:	'';
+	width:	14px;
+	height:	12px;
+	margin-top:	0px;
+	margin-right:	3px;
+	position:	relative;
+	display:	inline-block;
+	background-size:	14px;
+	background-repeat:	no-repeat;
+}
+.hljs-hiddenfile:before {
+	top:	0;
+	content:	'';
+	width:	14px;
+	height:	12px;
+	margin-top:	0px;
+	margin-right:	3px;
+	position:	relative;
+	display:	inline-block;
+	background-size:	14px;
+	background-repeat:	no-repeat;
+}
+.hljs-file:before {
+	height:	14px;
+	margin-left:	1px;
+}
+.hljs-hiddenfile:before {
+	height:	14px;
+	margin-left:	1px;
+}
+.hljs-file.photo:before {
+	font:	normal normal normal 14px / 1 FontAwesome;
+	content:	"\f1c5";
+}
+.hljs-file.plain:before {
+	font:	normal normal normal 14px / 1 FontAwesome;
+	content:	"\f016";
+}
+.hljs-file.source:before {
+	font:	normal normal normal 14px / 1 FontAwesome;
+	content:	"\f1c9";
+}
+.hljs-file.archive:before {
+	font:	normal normal normal 14px / 1 FontAwesome;
+	content:	"\f1c6";
+}
+.hljs-file.audio:before {
+	font:	normal normal normal 14px / 1 FontAwesome;
+	content:	"\f1c7";
+}
+.hljs-file.video:before {
+	font:	normal normal normal 14px / 1 FontAwesome;
+	content:	"\f1c8";
+}
+.hljs-file.pdf:before {
+	font:	normal normal normal 14px / 1 FontAwesome;
+	content:	"\f1c1";
+}
+.hljs-file.xls:before {
+	font:	normal normal normal 14px / 1 FontAwesome;
+	content:	"\f1c3";
+}
+.hljs-file.doc:before {
+	font:	normal normal normal 14px / 1 FontAwesome;
+	content:	"\f1c2";
+}
+.hljs-file.ppt:before {
+	font:	normal normal normal 14px / 1 FontAwesome;
+	content:	"\f1c4";
+}
+.hljs-folder:before {
+	font:	normal normal normal 14px / 1 FontAwesome;
+	content:	"\f114";
+}
+.hljs-hiddenfile:before {
+	font:	normal normal normal 14px / 1 FontAwesome;
+	content:	"\f016";
+}
+-webkit-transform:	rotate(0deg);
+transform:	rotate(0deg);
+-webkit-transform:	rotate(360deg);
+transform:	rotate(360deg);
+-webkit-transform:	rotate(0deg);
+transform:	rotate(0deg);
+-webkit-transform:	rotate(360deg);
+transform:	rotate(360deg);
+.sr-only-focusable:active {
+	clip:	auto;
+	height:	auto;
+	margin-top:	0;
+	margin-right:	0;
+	margin-bottom:	0;
+	margin-left:	0;
+	overflow:	visible;
+	position:	static;
+	width:	auto;
+}
+.sr-only-focusable:focus {
+	clip:	auto;
+	height:	auto;
+	margin-top:	0;
+	margin-right:	0;
+	margin-bottom:	0;
+	margin-left:	0;
+	overflow:	visible;
+	position:	static;
+	width:	auto;
+}
+.blank_anchor_id:before {
+	content:	'a';
+}
+.li_linenum:before {
+	content:	counter(lines , decimal);
+	position:	absolute;
+	left:	-3em;
+	text-align:	center;
+	width:	2.5em;
+	vertical-align:	top;
+}
+.li_linenum.line_mark:before {
+	background:	rgba(210 , 118 , 118 , 0.6);
+}
+@media print {
+body {
+	font-size:	18px !important;
+	word-wrap:	break-word !important;
+	background:	initial !important;
+	font-kerning:	normal;
+	text-rendering:	geometricPrecision;
+}
+.preview.html_preview {
+	max-width:	initial !important;
+	border:	initial;
+	margin-top:	initial;
+	margin-right:	initial;
+	margin-bottom:	initial;
+	margin-left:	initial;
+	padding-top:	initial;
+	padding-right:	initial;
+	padding-bottom:	initial;
+	padding-left:	initial;
+	border-radius:	initial;
+	box-shadow:	initial;
+}
+.xiaoshujiang_element.xsj_anchor {
+	position:	absolute;
+}
+tr {
+	page-break-inside:	avoid;
+}
+.story_image_container {
+	page-break-inside:	avoid;
+}
+blockquote {
+	page-break-inside:	avoid;
+}
+.xsj_underline {
+	page-break-after:	always;
+	visibility:	hidden;
+}
+}
+@media print {
+.markdown_vertical {
+	writing-mode:	initial;
+}
+.markdown_vertical   strong {
+	border-left:	0;
+	border-bottom:	2px solid;
+}
+}
+
+</style><body style="font-family: &apos;Helvetica Neue&apos; , Helvetica , Tahoma , Arial , &apos;Hiragino Sans GB&apos; , STHeiti , &quot;Microsoft YaHei&quot; , &quot;&#x5FAE;&#x8F6F;&#x96C5;&#x9ED1;&quot; , &apos;WenQuanYi Micro Hei&apos; , STXihei , &quot;&#x534E;&#x6587;&#x7EC6;&#x9ED1;&quot; , Heiti , &quot;&#x9ED1;&#x4F53;&quot; , SimSun , &quot;&#x5B8B;&#x4F53;&quot; , Song , sans-serif; font-size: 16px; line-height: 1.8; font-weight: normal; color: #2f2f2f; word-wrap: break-word;">
+	<div class="preview html_preview xsj_export_html" style="max-width: 100%;"><h2 class="xsj_heading_hash xsj_heading xsj_heading_h2" id="e4ba91e5a487e4bbbd_1" style="font-weight: bold; text-rendering: optimizelegibility; font-size: 1.8rem; margin-top: .7em; margin-right: 0; margin-bottom: .5em; margin-left: 0;"><div class="xiaoshujiang_element xsj_anchor" style="overflow: hidden; float: right;">
+  <a name="e4ba91e5a487e4bbbd_1" class="blank_anchor_name" target="_blank" style="color: #0088cc; text-decoration: none;"></a><a id="e4ba91e5a487e4bbbd_1" class="blank_anchor_id" target="_blank" style="color: #0088cc; text-decoration: none; float: right; width: 1px; height: 0px; visibility: hidden;"></a><a name="云备份" class="blank_anchor_name" target="_blank" style="color: #0088cc; text-decoration: none;"></a><a id="云备份" class="blank_anchor_id" target="_blank" style="color: #0088cc; text-decoration: none; float: right; width: 1px; height: 0px; visibility: hidden;"></a>
+</div>
+<span class="xsj_heading_content">云备份</span></h2>
+<p class="xsj_paragraph xsj_paragraph_level_0" style="margin-top: 1.1em; margin-right: 0; margin-bottom: 1.6em; margin-left: 0;">云备份为云内的弹性云服务器、云耀云服务器、裸金属服务器、云硬盘、SFS Turbo文件系统、云下VMware虚拟化环境，提供简单易用的<strong class="markdown_strong_asterisk" style="font-weight: bold;">备份服务</strong>，针对病毒入侵、人为误删、软硬件故障等场景，可将数据恢复到任意备份点。</p>
+<h4 class="xsj_heading_hash xsj_heading xsj_heading_h4" id="e4baa7e59381e69eb6e69e84_2" style="font-weight: bold; text-rendering: optimizelegibility; font-size: 1.5rem; margin-top: .5em; margin-right: 0; margin-bottom: .3em; margin-left: 0;"><div class="xiaoshujiang_element xsj_anchor" style="overflow: hidden; float: right;">
+  <a name="e4baa7e59381e69eb6e69e84_2" class="blank_anchor_name" target="_blank" style="color: #0088cc; text-decoration: none;"></a><a id="e4baa7e59381e69eb6e69e84_2" class="blank_anchor_id" target="_blank" style="color: #0088cc; text-decoration: none; float: right; width: 1px; height: 0px; visibility: hidden;"></a><a name="产品架构" class="blank_anchor_name" target="_blank" style="color: #0088cc; text-decoration: none;"></a><a id="产品架构" class="blank_anchor_id" target="_blank" style="color: #0088cc; text-decoration: none; float: right; width: 1px; height: 0px; visibility: hidden;"></a>
+</div>
+<span class="xsj_heading_content">产品架构</span></h4>
+<blockquote class="markdown_blockquote" style="padding-top: 20px; padding-right: 20px; padding-bottom: 20px; padding-left: 20px; margin-top: 20px; margin-right: 0; margin-bottom: 20px; margin-left: 0; border-left: 5px solid rgba(153 , 153 , 153 , 0.2); background: rgba(204 , 204 , 204 , 0.2); position: relative;">
+<p class="xsj_paragraph xsj_paragraph_level_1" style="margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0;"><span class="xsj_placeholder_span"></span>云备份由备份、存储库和策略组成</p>
 </blockquote>
-<h6>备份</h6>
-<p>备份即一个备份对象执行一次备份任务产生的备份数据，包括备份对象恢复所需要的全部数据。云备份产生的备份可以分为四种类型</p>
-<ul>
-<li>云硬盘备份：云硬盘备份提供对云硬盘的基于快照技术的数据保护</li>
-<li>云服务器备份：云服务器备份提供对弹性云服务器和裸金属服务器的基于多云硬盘一致性快照技术的数据保护。同时，未部署数据库等应用的服务器产生的备份为<strong>服务器备份</strong>，部署数据库等应用的服务器产生的备份为<strong>数据库服务器备份</strong></li>
-<li>文件系统备份：文件服务备份提供对SFS Turbo文件系统的数据保护</li>
-<li>混合云备份：混合云备份提供对线下备份软件OceanStor BCManger的备份数据以及VMware服务器备份的云上管理和恢复的数据保护</li>
-
+<h6 class="xsj_heading_hash xsj_heading xsj_heading_h6" id="e5a487e4bbbd_3" style="font-weight: bold; text-rendering: optimizelegibility; font-size: 1.3rem; margin-top: .5em; margin-right: 0; margin-bottom: .3em; margin-left: 0;"><div class="xiaoshujiang_element xsj_anchor" style="overflow: hidden; float: right;">
+  <a name="e5a487e4bbbd_3" class="blank_anchor_name" target="_blank" style="color: #0088cc; text-decoration: none;"></a><a id="e5a487e4bbbd_3" class="blank_anchor_id" target="_blank" style="color: #0088cc; text-decoration: none; float: right; width: 1px; height: 0px; visibility: hidden;"></a><a name="备份" class="blank_anchor_name" target="_blank" style="color: #0088cc; text-decoration: none;"></a><a id="备份" class="blank_anchor_id" target="_blank" style="color: #0088cc; text-decoration: none; float: right; width: 1px; height: 0px; visibility: hidden;"></a>
+</div>
+<span class="xsj_heading_content">备份</span></h6>
+<p class="xsj_paragraph xsj_paragraph_level_0" style="margin-top: 1.1em; margin-right: 0; margin-bottom: 1.6em; margin-left: 0;">备份即一个备份对象执行一次备份任务产生的备份数据，包括备份对象恢复所需要的全部数据。云备份产生的备份可以分为四种类型</p>
+<ul class="markdown_ul" style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 1.1em; margin-right: 0; margin-bottom: 1.1em; margin-left: 3em;">
+<li><span class="xsj_placeholder_span"></span>云硬盘备份：云硬盘备份提供对云硬盘的基于快照技术的数据保护</li>
+<li><span class="xsj_placeholder_span"></span>云服务器备份：云服务器备份提供对弹性云服务器和裸金属服务器的基于多云硬盘一致性快照技术的数据保护。同时，未部署数据库等应用的服务器产生的备份为<strong class="markdown_strong_asterisk" style="font-weight: bold;">服务器备份</strong>，部署数据库等应用的服务器产生的备份为<strong class="markdown_strong_asterisk" style="font-weight: bold;">数据库服务器备份</strong></li>
+<li><span class="xsj_placeholder_span"></span>文件系统备份：文件服务备份提供对SFS Turbo文件系统的数据保护</li>
+<li><span class="xsj_placeholder_span"></span>混合云备份：混合云备份提供对线下备份软件OceanStor BCManger的备份数据以及VMware服务器备份的云上管理和恢复的数据保护</li>
 </ul>
-<h6>存储库</h6>
-<p>云备份使用存储库来存放备份。创建备份前，需要先创建至少<strong>一个存储库</strong>，并将服务器或磁盘绑定至存储库。服务器或磁盘产生的备份则会存放至绑定的存储库中。</p>
-<p>存储库分为备份存储库和复制存储库(将备份存储库备份到另外一个区的备份存储库)两种。备份存储库用于存放备份对象产生的备份，复制存储库用于存放复制操作产生的备份。</p>
-<h6>策略</h6>
-<p>策略分为备份策略和恢复策略</p>
-<ul>
-<li>备份策略：需要对备份对象执行自动备份操作时，可以设置备份策略。通过在策略中设置备份任务执行的时间、周期以及备份数据的保留规则，将备份存储库绑定到备份策略，可以为存储库执行自动备份。</li>
-<li>复制策略：需要对备份或存储库执行自动复制操作时，可以设置复制策略。通过在策略中设置复制任务执行的时间、周期以及备份数据的保留规则，将备份存储库绑定到复制策略，可以为存储库执行自动复制。复制产生的备份需要存放在复制存储库中。</li>
-
+<h6 class="xsj_heading_hash xsj_heading xsj_heading_h6" id="e5ad98e582a8e5ba93_4" style="font-weight: bold; text-rendering: optimizelegibility; font-size: 1.3rem; margin-top: .5em; margin-right: 0; margin-bottom: .3em; margin-left: 0;"><div class="xiaoshujiang_element xsj_anchor" style="overflow: hidden; float: right;">
+  <a name="e5ad98e582a8e5ba93_4" class="blank_anchor_name" target="_blank" style="color: #0088cc; text-decoration: none;"></a><a id="e5ad98e582a8e5ba93_4" class="blank_anchor_id" target="_blank" style="color: #0088cc; text-decoration: none; float: right; width: 1px; height: 0px; visibility: hidden;"></a><a name="存储库" class="blank_anchor_name" target="_blank" style="color: #0088cc; text-decoration: none;"></a><a id="存储库" class="blank_anchor_id" target="_blank" style="color: #0088cc; text-decoration: none; float: right; width: 1px; height: 0px; visibility: hidden;"></a>
+</div>
+<span class="xsj_heading_content">存储库</span></h6>
+<p class="xsj_paragraph xsj_paragraph_level_0" style="margin-top: 1.1em; margin-right: 0; margin-bottom: 1.6em; margin-left: 0;">云备份使用存储库来存放备份。创建备份前，需要先创建至少<strong class="markdown_strong_asterisk" style="font-weight: bold;">一个存储库</strong>，并将服务器或磁盘绑定至存储库。服务器或磁盘产生的备份则会存放至绑定的存储库中。</p>
+<p class="xsj_paragraph xsj_paragraph_level_0" style="margin-top: 1.1em; margin-right: 0; margin-bottom: 1.6em; margin-left: 0;">存储库分为备份存储库和复制存储库(将备份存储库备份到另外一个区的备份存储库)两种。备份存储库用于存放备份对象产生的备份，复制存储库用于存放复制操作产生的备份。</p>
+<h6 class="xsj_heading_hash xsj_heading xsj_heading_h6" id="e7ad96e795a5_5" style="font-weight: bold; text-rendering: optimizelegibility; font-size: 1.3rem; margin-top: .5em; margin-right: 0; margin-bottom: .3em; margin-left: 0;"><div class="xiaoshujiang_element xsj_anchor" style="overflow: hidden; float: right;">
+  <a name="e7ad96e795a5_5" class="blank_anchor_name" target="_blank" style="color: #0088cc; text-decoration: none;"></a><a id="e7ad96e795a5_5" class="blank_anchor_id" target="_blank" style="color: #0088cc; text-decoration: none; float: right; width: 1px; height: 0px; visibility: hidden;"></a><a name="策略" class="blank_anchor_name" target="_blank" style="color: #0088cc; text-decoration: none;"></a><a id="策略" class="blank_anchor_id" target="_blank" style="color: #0088cc; text-decoration: none; float: right; width: 1px; height: 0px; visibility: hidden;"></a>
+</div>
+<span class="xsj_heading_content">策略</span></h6>
+<p class="xsj_paragraph xsj_paragraph_level_0" style="margin-top: 1.1em; margin-right: 0; margin-bottom: 1.6em; margin-left: 0;">策略分为备份策略和恢复策略</p>
+<ul class="markdown_ul" style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 1.1em; margin-right: 0; margin-bottom: 1.1em; margin-left: 3em;">
+<li><span class="xsj_placeholder_span"></span>备份策略：需要对备份对象执行自动备份操作时，可以设置备份策略。通过在策略中设置备份任务执行的时间、周期以及备份数据的保留规则，将备份存储库绑定到备份策略，可以为存储库执行自动备份。</li>
+<li><span class="xsj_placeholder_span"></span>复制策略：需要对备份或存储库执行自动复制操作时，可以设置复制策略。通过在策略中设置复制任务执行的时间、周期以及备份数据的保留规则，将备份存储库绑定到复制策略，可以为存储库执行自动复制。复制产生的备份需要存放在复制存储库中。</li>
 </ul>
-<h6>四种备份的差异</h6>
-<figure><table>
+<h6 class="xsj_heading_hash xsj_heading xsj_heading_h6" id="e59b9be7a78de5a487e4bbbde79a84e5b7aee5bc82_6" style="font-weight: bold; text-rendering: optimizelegibility; font-size: 1.3rem; margin-top: .5em; margin-right: 0; margin-bottom: .3em; margin-left: 0;"><div class="xiaoshujiang_element xsj_anchor" style="overflow: hidden; float: right;">
+  <a name="e59b9be7a78de5a487e4bbbde79a84e5b7aee5bc82_6" class="blank_anchor_name" target="_blank" style="color: #0088cc; text-decoration: none;"></a><a id="e59b9be7a78de5a487e4bbbde79a84e5b7aee5bc82_6" class="blank_anchor_id" target="_blank" style="color: #0088cc; text-decoration: none; float: right; width: 1px; height: 0px; visibility: hidden;"></a><a name="四种备份的差异" class="blank_anchor_name" target="_blank" style="color: #0088cc; text-decoration: none;"></a><a id="四种备份的差异" class="blank_anchor_id" target="_blank" style="color: #0088cc; text-decoration: none; float: right; width: 1px; height: 0px; visibility: hidden;"></a>
+</div>
+<span class="xsj_heading_content">四种备份的差异</span></h6>
+<table class="table-extra table table-striped table-celled" style="max-width: 100%; background-color: transparent; border-collapse: collapse; border-spacing: 0; word-break: initial; border: 1px solid rgba(34 , 36 , 38 , .15); width: 100%; margin-bottom: 20px; margin-right: auto; margin-left: auto;">
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
 <thead>
-<tr><th>对比维度</th><th>云服务器备份</th><th>云硬盘备份</th><th>文件服务备份</th><th>混合云备份</th></tr></thead>
-<tbody><tr><td>备份/恢复对象</td><td>服务器中的所有云硬盘（系统盘和数据盘）</td><td>指定的单个或多个磁盘（系统盘或数据盘）</td><td>弹性文件服务中的SFS Turbo文件系统</td><td>可以同步云下服务器备份数据，可以将云下数据恢复至云端服务器</td></tr><tr><td>推荐场景</td><td>需要对整个云服务器进行保护</td><td>系统盘没有个人数据，因而只需要对部分的数据盘进行备份</td><td>需要对文件系统的数据进行保护</td><td>需要在云上对云下服务器的备份数据进行管理，在云上使用云下数据恢复服务器等</td></tr><tr><td>优势</td><td>备份的同一个服务器下的所有磁盘数据具有一致性，即同时对所有云硬盘进行备份，不存在因备份创建时间差带来的数据不一致问题</td><td>保证数据安全的同时降低备份成本</td><td>备份数据与文件系统分开存放，可以使用备份创建新的文件系统</td><td>云下数据可以用于在云上搭建新的业务，将数据在云上备份</td></tr></tbody>
-</table></figure>
-<h4>应用场景</h4>
-<ul>
-<li><p>数据备份和恢复</p>
-<ul>
-<li>受黑客攻击和病毒入侵</li>
-<li>数据被误删</li>
-<li>应用程序更新出错</li>
-<li>云服务器宕机</li>
-
+<tr>
+<th style="padding-top: 8px; padding-right: 8px; padding-bottom: 8px; padding-left: 8px; line-height: 20px; text-align: left; vertical-align: bottom; border-top: 0; font-weight: bold; border-left: none;">对比维度</th>
+<th style="padding-top: 8px; padding-right: 8px; padding-bottom: 8px; padding-left: 8px; line-height: 20px; text-align: left; vertical-align: bottom; border-top: 0; font-weight: bold; border-left: 1px solid rgba(34 , 36 , 38 , .1);">云服务器备份</th>
+<th style="padding-top: 8px; padding-right: 8px; padding-bottom: 8px; padding-left: 8px; line-height: 20px; text-align: left; vertical-align: bottom; border-top: 0; font-weight: bold; border-left: 1px solid rgba(34 , 36 , 38 , .1);">云硬盘备份</th>
+<th style="padding-top: 8px; padding-right: 8px; padding-bottom: 8px; padding-left: 8px; line-height: 20px; text-align: left; vertical-align: bottom; border-top: 0; font-weight: bold; border-left: 1px solid rgba(34 , 36 , 38 , .1);">文件服务备份</th>
+<th style="padding-top: 8px; padding-right: 8px; padding-bottom: 8px; padding-left: 8px; line-height: 20px; text-align: left; vertical-align: bottom; border-top: 0; font-weight: bold; border-left: 1px solid rgba(34 , 36 , 38 , .1);">混合云备份</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="padding-top: 8px; padding-right: 8px; padding-bottom: 8px; padding-left: 8px; line-height: 20px; text-align: left; vertical-align: top; border-top: 1px solid #ddd; background-color: #f9f9f9; border-left: none; background: #f9f9f9;">备份/恢复对象</td>
+<td style="padding-top: 8px; padding-right: 8px; padding-bottom: 8px; padding-left: 8px; line-height: 20px; text-align: left; vertical-align: top; border-top: 1px solid #ddd; background-color: #f9f9f9; border-left: 1px solid rgba(34 , 36 , 38 , .1); background: #f9f9f9;">服务器中的所有云硬盘（系统盘和数据盘）</td>
+<td style="padding-top: 8px; padding-right: 8px; padding-bottom: 8px; padding-left: 8px; line-height: 20px; text-align: left; vertical-align: top; border-top: 1px solid #ddd; background-color: #f9f9f9; border-left: 1px solid rgba(34 , 36 , 38 , .1); background: #f9f9f9;">指定的单个或多个磁盘（系统盘或数据盘）</td>
+<td style="padding-top: 8px; padding-right: 8px; padding-bottom: 8px; padding-left: 8px; line-height: 20px; text-align: left; vertical-align: top; border-top: 1px solid #ddd; background-color: #f9f9f9; border-left: 1px solid rgba(34 , 36 , 38 , .1); background: #f9f9f9;">弹性文件服务中的SFS Turbo文件系统</td>
+<td style="padding-top: 8px; padding-right: 8px; padding-bottom: 8px; padding-left: 8px; line-height: 20px; text-align: left; vertical-align: top; border-top: 1px solid #ddd; background-color: #f9f9f9; border-left: 1px solid rgba(34 , 36 , 38 , .1); background: #f9f9f9;">可以同步云下服务器备份数据，可以将云下数据恢复至云端服务器</td>
+</tr>
+<tr>
+<td style="padding-top: 8px; padding-right: 8px; padding-bottom: 8px; padding-left: 8px; line-height: 20px; text-align: left; vertical-align: top; border-top: 1px solid #ddd; border-left: none;">推荐场景</td>
+<td style="padding-top: 8px; padding-right: 8px; padding-bottom: 8px; padding-left: 8px; line-height: 20px; text-align: left; vertical-align: top; border-top: 1px solid #ddd; border-left: 1px solid rgba(34 , 36 , 38 , .1);">需要对整个云服务器进行保护</td>
+<td style="padding-top: 8px; padding-right: 8px; padding-bottom: 8px; padding-left: 8px; line-height: 20px; text-align: left; vertical-align: top; border-top: 1px solid #ddd; border-left: 1px solid rgba(34 , 36 , 38 , .1);">系统盘没有个人数据，因而只需要对部分的数据盘进行备份</td>
+<td style="padding-top: 8px; padding-right: 8px; padding-bottom: 8px; padding-left: 8px; line-height: 20px; text-align: left; vertical-align: top; border-top: 1px solid #ddd; border-left: 1px solid rgba(34 , 36 , 38 , .1);">需要对文件系统的数据进行保护</td>
+<td style="padding-top: 8px; padding-right: 8px; padding-bottom: 8px; padding-left: 8px; line-height: 20px; text-align: left; vertical-align: top; border-top: 1px solid #ddd; border-left: 1px solid rgba(34 , 36 , 38 , .1);">需要在云上对云下服务器的备份数据进行管理，在云上使用云下数据恢复服务器等</td>
+</tr>
+<tr>
+<td style="padding-top: 8px; padding-right: 8px; padding-bottom: 8px; padding-left: 8px; line-height: 20px; text-align: left; vertical-align: top; border-top: 1px solid #ddd; background-color: #f9f9f9; border-left: none; background: #f9f9f9;">优势</td>
+<td style="padding-top: 8px; padding-right: 8px; padding-bottom: 8px; padding-left: 8px; line-height: 20px; text-align: left; vertical-align: top; border-top: 1px solid #ddd; background-color: #f9f9f9; border-left: 1px solid rgba(34 , 36 , 38 , .1); background: #f9f9f9;">备份的同一个服务器下的所有磁盘数据具有一致性，即同时对所有云硬盘进行备份，不存在因备份创建时间差带来的数据不一致问题</td>
+<td style="padding-top: 8px; padding-right: 8px; padding-bottom: 8px; padding-left: 8px; line-height: 20px; text-align: left; vertical-align: top; border-top: 1px solid #ddd; background-color: #f9f9f9; border-left: 1px solid rgba(34 , 36 , 38 , .1); background: #f9f9f9;">保证数据安全的同时降低备份成本</td>
+<td style="padding-top: 8px; padding-right: 8px; padding-bottom: 8px; padding-left: 8px; line-height: 20px; text-align: left; vertical-align: top; border-top: 1px solid #ddd; background-color: #f9f9f9; border-left: 1px solid rgba(34 , 36 , 38 , .1); background: #f9f9f9;">备份数据与文件系统分开存放，可以使用备份创建新的文件系统</td>
+<td style="padding-top: 8px; padding-right: 8px; padding-bottom: 8px; padding-left: 8px; line-height: 20px; text-align: left; vertical-align: top; border-top: 1px solid #ddd; background-color: #f9f9f9; border-left: 1px solid rgba(34 , 36 , 38 , .1); background: #f9f9f9;">云下数据可以用于在云上搭建新的业务，将数据在云上备份</td>
+</tr>
+</tbody>
+</table>
+<h4 class="xsj_heading_hash xsj_heading xsj_heading_h4" id="e5ba94e794a8e59cbae699af_7" style="font-weight: bold; text-rendering: optimizelegibility; font-size: 1.5rem; margin-top: .5em; margin-right: 0; margin-bottom: .3em; margin-left: 0;"><div class="xiaoshujiang_element xsj_anchor" style="overflow: hidden; float: right;">
+  <a name="e5ba94e794a8e59cbae699af_7" class="blank_anchor_name" target="_blank" style="color: #0088cc; text-decoration: none;"></a><a id="e5ba94e794a8e59cbae699af_7" class="blank_anchor_id" target="_blank" style="color: #0088cc; text-decoration: none; float: right; width: 1px; height: 0px; visibility: hidden;"></a><a name="应用场景" class="blank_anchor_name" target="_blank" style="color: #0088cc; text-decoration: none;"></a><a id="应用场景" class="blank_anchor_id" target="_blank" style="color: #0088cc; text-decoration: none; float: right; width: 1px; height: 0px; visibility: hidden;"></a>
+</div>
+<span class="xsj_heading_content">应用场景</span></h4>
+<ul class="markdown_ul" style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 1.1em; margin-right: 0; margin-bottom: 1.1em; margin-left: 3em;">
+<li><span class="xsj_placeholder_span"></span>数据备份和恢复
+<ul class="markdown_ul" style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 1em;">
+<li><span class="xsj_placeholder_span"></span>受黑客攻击和病毒入侵</li>
+<li><span class="xsj_placeholder_span"></span>数据被误删</li>
+<li><span class="xsj_placeholder_span"></span>应用程序更新出错</li>
+<li><span class="xsj_placeholder_span"></span>云服务器宕机</li>
 </ul>
 </li>
-<li><p>业务快速迁移&amp;部署</p>
-</li>
-
+<li><span class="xsj_placeholder_span"></span>业务快速迁移&amp;部署</li>
 </ul>
-<p>&nbsp;</p>
+</div>
+</body>
+</div></div>
+<script>
+  !function(e){function t(o){if(n[o])return n[o].exports;var l=n[o]={i:o,l:!1,exports:{}};return e[o].call(l.exports,l,l.exports,t),l.l=!0,l.exports}var n={};t.m=e,t.c=n,t.d=function(e,n,o){t.o(e,n)||Object.defineProperty(e,n,{configurable:!1,enumerable:!0,get:o})},t.n=function(e){var n=e&&e.__esModule?function(){return e.default}:function(){return e};return t.d(n,"a",n),n},t.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},t.p="",t(t.s=0)}([function(e,t,n){(function(o){var l,r,i;!function(n,o){r=[],l=o(n),void 0!==(i="function"==typeof l?l.apply(t,r):l)&&(e.exports=i)}(void 0!==o?o:this.window||this.global,function(e){"use strict";function t(){for(var e={},t=0;t<arguments.length;t++){var n=arguments[t];for(var o in n)m.call(n,o)&&(e[o]=n[o])}return e}function o(e,t,n){t||(t=250);var o,l;return function(){var r=n||this,i=+new Date,s=arguments;o&&i<o+t?(clearTimeout(l),l=setTimeout(function(){o=i,e.apply(r,s)},t)):(o=i,e.apply(r,s))}}var l,r,i=n(2),s={},c={},a=n(3),u=n(4);if("undefined"!=typeof window){var d,f=!!e.document.querySelector&&!!e.addEventListener,m=Object.prototype.hasOwnProperty;return c.destroy=function(){if(!s.skipRendering)try{document.querySelector(s.tocSelector).innerHTML=""}catch(e){console.warn("Element not found: "+s.tocSelector)}s.scrollContainer&&document.querySelector(s.scrollContainer)?(document.querySelector(s.scrollContainer).removeEventListener("scroll",this._scrollListener,!1),document.querySelector(s.scrollContainer).removeEventListener("resize",this._scrollListener,!1),l&&document.querySelector(s.scrollContainer).removeEventListener("click",this._clickListener,!1)):(document.removeEventListener("scroll",this._scrollListener,!1),document.removeEventListener("resize",this._scrollListener,!1),l&&document.removeEventListener("click",this._clickListener,!1))},c.init=function(e){if(f&&(s=t(i,e||{}),this.options=s,this.state={},s.scrollSmooth&&(s.duration=s.scrollSmoothDuration,s.offset=s.scrollSmoothOffset,c.scrollSmooth=n(5).initSmoothScrolling(s)),l=a(s),r=u(s),this._buildHtml=l,this._parseContent=r,c.destroy(),null!==(d=r.selectHeadings(s.contentSelector,s.headingSelector)))){var m=r.nestHeadingsArray(d),h=m.nest;s.skipRendering||l.render(s.tocSelector,h),this._scrollListener=o(function(e){l.updateToc(d);var t=e&&e.target&&e.target.scrollingElement&&0===e.target.scrollingElement.scrollTop;(e&&(0===e.eventPhase||null===e.currentTarget)||t)&&(l.updateToc(d),s.scrollEndCallback&&s.scrollEndCallback(e))},s.throttleTimeout),this._scrollListener(),s.scrollContainer&&document.querySelector(s.scrollContainer)?(document.querySelector(s.scrollContainer).addEventListener("scroll",this._scrollListener,!1),document.querySelector(s.scrollContainer).addEventListener("resize",this._scrollListener,!1)):(document.addEventListener("scroll",this._scrollListener,!1),document.addEventListener("resize",this._scrollListener,!1));var p=null;return this._clickListener=o(function(e){s.scrollSmooth&&l.disableTocAnimation(e),l.updateToc(d),p&&clearTimeout(p),p=setTimeout(function(){l.enableTocAnimation()},s.scrollSmoothDuration)},s.throttleTimeout),s.scrollContainer&&document.querySelector(s.scrollContainer)?document.querySelector(s.scrollContainer).addEventListener("click",this._clickListener,!1):document.addEventListener("click",this._clickListener,!1),this}},c.refresh=function(e){c.destroy(),c.init(e||this.options)},e.tocbot=c,c}})}).call(t,n(1))},function(e,t){var n;n=function(){return this}();try{n=n||Function("return this")()||(0,eval)("this")}catch(e){"object"==typeof window&&(n=window)}e.exports=n},function(e,t){e.exports={tocSelector:".js-toc",contentSelector:".js-toc-content",headingSelector:"h1, h2, h3",ignoreSelector:".js-toc-ignore",hasInnerContainers:!1,linkClass:"toc-link",extraLinkClasses:"",activeLinkClass:"is-active-link",listClass:"toc-list",extraListClasses:"",isCollapsedClass:"is-collapsed",collapsibleClass:"is-collapsible",listItemClass:"toc-list-item",activeListItemClass:"is-active-li",collapseDepth:0,scrollSmooth:!0,scrollSmoothDuration:420,scrollSmoothOffset:0,scrollEndCallback:function(e){},headingsOffset:1,throttleTimeout:50,positionFixedSelector:null,positionFixedClass:"is-position-fixed",fixedSidebarOffset:"auto",includeHtml:!1,onClick:!1,orderedList:!0,scrollContainer:null,skipRendering:!1}},function(e,t){e.exports=function(e){function t(e,n){var r=n.appendChild(o(e));if(e.children.length){var i=l(e.isCollapsed);e.children.forEach(function(e){t(e,i)}),r.appendChild(i)}}function n(e,n){var o=l(!1);n.forEach(function(e){t(e,o)});var r=document.querySelector(e);if(null!==r)return r.firstChild&&r.removeChild(r.firstChild),0===n.length?r:r.appendChild(o)}function o(t){var n=document.createElement("li"),o=document.createElement("a");return e.listItemClass&&n.setAttribute("class",e.listItemClass),e.onClick&&(o.onclick=e.onClick),e.includeHtml&&t.childNodes.length?d.call(t.childNodes,function(e){o.appendChild(e.cloneNode(!0))}):o.textContent=t.textContent,o.setAttribute("href","#"+t.id),o.setAttribute("class",e.linkClass+p+"node-name--"+t.nodeName+p+e.extraLinkClasses),n.appendChild(o),n}function l(t){var n=e.orderedList?"ol":"ul",o=document.createElement(n),l=e.listClass+p+e.extraListClasses;return t&&(l+=p+e.collapsibleClass,l+=p+e.isCollapsedClass),o.setAttribute("class",l),o}function r(){if(e.scrollContainer&&document.querySelector(e.scrollContainer))var t=document.querySelector(e.scrollContainer).scrollTop;else var t=document.documentElement.scrollTop||m.scrollTop;var n=document.querySelector(e.positionFixedSelector);"auto"===e.fixedSidebarOffset&&(e.fixedSidebarOffset=document.querySelector(e.tocSelector).offsetTop),t>e.fixedSidebarOffset?-1===n.className.indexOf(e.positionFixedClass)&&(n.className+=p+e.positionFixedClass):n.className=n.className.split(p+e.positionFixedClass).join("")}function i(t){var n=0;return t!=document.querySelector(e.contentSelector&&null!=t)&&(n=t.offsetTop,e.hasInnerContainers&&(n+=i(t.offsetParent))),n}function s(t){if(e.scrollContainer&&document.querySelector(e.scrollContainer))var n=document.querySelector(e.scrollContainer).scrollTop;else var n=document.documentElement.scrollTop||m.scrollTop;e.positionFixedSelector&&r();var o,l=t;if(h&&null!==document.querySelector(e.tocSelector)&&l.length>0){f.call(l,function(t,r){if(i(t)>n+e.headingsOffset+10){return o=l[0===r?r:r-1],!0}if(r===l.length-1)return o=l[l.length-1],!0});var s=document.querySelector(e.tocSelector).querySelectorAll("."+e.linkClass);d.call(s,function(t){t.className=t.className.split(p+e.activeLinkClass).join("")});var a=document.querySelector(e.tocSelector).querySelectorAll("."+e.listItemClass);d.call(a,function(t){t.className=t.className.split(p+e.activeListItemClass).join("")});var u=document.querySelector(e.tocSelector).querySelector("."+e.linkClass+".node-name--"+o.nodeName+'[href="#'+o.id+'"]');-1===u.className.indexOf(e.activeLinkClass)&&(u.className+=p+e.activeLinkClass);var C=u.parentNode;C&&-1===C.className.indexOf(e.activeListItemClass)&&(C.className+=p+e.activeListItemClass);var v=document.querySelector(e.tocSelector).querySelectorAll("."+e.listClass+"."+e.collapsibleClass);d.call(v,function(t){-1===t.className.indexOf(e.isCollapsedClass)&&(t.className+=p+e.isCollapsedClass)}),u.nextSibling&&-1!==u.nextSibling.className.indexOf(e.isCollapsedClass)&&(u.nextSibling.className=u.nextSibling.className.split(p+e.isCollapsedClass).join("")),c(u.parentNode.parentNode)}}function c(t){return-1!==t.className.indexOf(e.collapsibleClass)&&-1!==t.className.indexOf(e.isCollapsedClass)?(t.className=t.className.split(p+e.isCollapsedClass).join(""),c(t.parentNode.parentNode)):t}function a(t){var n=t.target||t.srcElement;"string"==typeof n.className&&-1!==n.className.indexOf(e.linkClass)&&(h=!1)}function u(){h=!0}var d=[].forEach,f=[].some,m=document.body,h=!0,p=" ";return{enableTocAnimation:u,disableTocAnimation:a,render:n,updateToc:s}}},function(e,t){e.exports=function(e){function t(e){return e[e.length-1]}function n(e){return+e.nodeName.split("H").join("")}function o(t){var o={id:t.id,children:[],nodeName:t.nodeName,headingLevel:n(t),textContent:t.textContent.trim()};return e.includeHtml&&(o.childNodes=t.childNodes),o}function l(l,r){for(var i=o(l),s=n(l),c=r,a=t(c),u=a?a.headingLevel:0,d=s-u;d>0;)a=t(c),a&&void 0!==a.children&&(c=a.children),d--;return s>=e.collapseDepth&&(i.isCollapsed=!0),c.push(i),c}function r(t,n){var o=n;e.ignoreSelector&&(o=n.split(",").map(function(t){return t.trim()+":not("+e.ignoreSelector+")"}));try{return document.querySelector(t).querySelectorAll(o)}catch(e){return console.warn("Element not found: "+t),null}}function i(e){return s.call(e,function(e,t){return l(o(t),e.nest),e},{nest:[]})}var s=[].reduce;return{nestHeadingsArray:i,selectHeadings:r}}},function(e,t){function n(e){function t(e){return"a"===e.tagName.toLowerCase()&&(e.hash.length>0||"#"===e.href.charAt(e.href.length-1))&&(n(e.href)===s||n(e.href)+"#"===s)}function n(e){return e.slice(0,e.lastIndexOf("#"))}function l(e){var t=document.getElementById(e.substring(1));t&&(/^(?:a|select|input|button|textarea)$/i.test(t.tagName)||(t.tabIndex=-1),t.focus())}!function(){document.documentElement.style}();var r=e.duration,i=e.offset,s=location.hash?n(location.href):location.href;!function(){function n(n){!t(n.target)||n.target.className.indexOf("no-smooth-scroll")>-1||"#"===n.target.href.charAt(n.target.href.length-2)&&"!"===n.target.href.charAt(n.target.href.length-1)||-1===n.target.className.indexOf(e.linkClass)||o(n.target.hash,{duration:r,offset:i,callback:function(){l(n.target.hash)}})}document.body.addEventListener("click",n,!1)}()}function o(e,t){function n(e){i=e-r,window.scrollTo(0,c.easing(i,s,u,d)),i<d?requestAnimationFrame(n):o()}function o(){window.scrollTo(0,s+u),"function"==typeof c.callback&&c.callback()}function l(e,t,n,o){return(e/=o/2)<1?n/2*e*e+t:(e--,-n/2*(e*(e-2)-1)+t)}var r,i,s=window.pageYOffset,c={duration:t.duration,offset:t.offset||0,callback:t.callback,easing:t.easing||l},a=document.querySelector('[id="'+decodeURI(e).split("#").join("")+'"]'),u="string"==typeof e?c.offset+(e?a&&a.getBoundingClientRect().top||0:-(document.documentElement.scrollTop||document.body.scrollTop)):e,d="function"==typeof c.duration?c.duration(u):c.duration;requestAnimationFrame(function(e){r=e,n(e)})}t.initSmoothScrolling=n}]);
+</script>
+<script>
+  var xsjRoot = document.querySelector('.xsj_root');
+  xsjRoot.classList.add('xsj_container_toc')
+tocbot.init({
+  // Where to render the table of contents.
+  tocSelector: '#nav',
+  // Where to grab the headings to build the table of contents.
+  contentSelector: '#wmd-preview',
+  // Which headings to grab inside of the contentSelector element.
+  headingSelector: '.html_preview>h1, .html_preview>h2,.html_preview>h3,.html_preview>h4,.html_preview>h5,.html_preview>h6',
+});
+var tocToggle = document.querySelector('#toc-toggle');
+var toggler = function(e) {
+    e.preventDefault();
+    var tocContainer = document.querySelector('.xsj_container_toc');
+    var icon = document.querySelector('.toc-toggle-icon');
+    var tip = document.querySelector('.toc-toggle-tip');
+    if (tocContainer.classList.contains('hide_toc')){
+        tocContainer.classList.remove('hide_toc');
+        icon.innerHTML = "←";
+        tip.innerHTML = "关闭目录";
+        
+    } else {
+        tocContainer.classList.add('hide_toc');
+        icon.innerHTML = "→";
+        tip.innerHTML = "展开目录";
+    }
+}
+tocToggle.addEventListener('click', toggler, false);
+</script>
+</body></html>
+
+
